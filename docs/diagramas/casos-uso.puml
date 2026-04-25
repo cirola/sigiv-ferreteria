@@ -1,0 +1,50 @@
+@startuml casos-uso-sigiv
+title Diagrama de Casos de Uso - SIGIV Ferretería San Martín
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+actor "Administrador" as admin
+actor "Vendedor" as vend
+
+rectangle "SIGIV - Sistema de Gestión" {
+  usecase "CU01 Iniciar sesión" as CU01
+  usecase "CU02 Gestionar productos" as CU02
+  usecase "CU03 Consultar stock" as CU03
+  usecase "CU04 Registrar venta" as CU04
+  usecase "CU05 Anular venta" as CU05
+  usecase "CU06 Registrar compra" as CU06
+  usecase "CU07 Gestionar clientes" as CU07
+  usecase "CU08 Gestionar proveedores" as CU08
+  usecase "CU09 Registrar pago\nde cta. cte." as CU09
+  usecase "CU10 Generar reportes" as CU10
+  usecase "CU11 Gestionar usuarios" as CU11
+}
+
+' Vendedor
+vend --> CU01
+vend --> CU03
+vend --> CU04
+vend --> CU07
+vend --> CU09
+
+' Administrador (hereda todo lo del vendedor y suma)
+admin --> CU01
+admin --> CU02
+admin --> CU03
+admin --> CU04
+admin --> CU05
+admin --> CU06
+admin --> CU07
+admin --> CU08
+admin --> CU09
+admin --> CU10
+admin --> CU11
+
+' Relaciones entre casos de uso
+CU04 ..> CU03 : <<include>>
+CU04 ..> CU09 : <<extend>>
+CU06 ..> CU08 : <<include>>
+
+@enduml

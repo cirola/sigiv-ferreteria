@@ -1,0 +1,28 @@
+@startuml procesos-venta-actual
+title Proceso actual de Venta al Mostrador (AS-IS) - Ferretería San Martín
+
+|Cliente|
+start
+:Consulta producto;
+
+|Vendedor|
+:Busca precio en planilla Excel\no etiqueta física;
+:Verifica existencia\nen depósito (manual);
+if (¿Hay stock?) then (sí)
+  :Arma pedido\ny totaliza con calculadora;
+else (no)
+  :Informa falta de stock;
+  stop
+endif
+
+|Cliente|
+:Paga (efectivo / transferencia / cta. cte.);
+
+|Vendedor|
+:Emite comprobante talonario;
+:Asienta venta en cuaderno;
+
+|Dueño|
+:Al cierre del día,\ndescuenta stock en Excel;
+stop
+@enduml

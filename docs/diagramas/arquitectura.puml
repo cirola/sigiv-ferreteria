@@ -1,0 +1,30 @@
+@startuml arquitectura-sigiv
+title Arquitectura en 3 capas - SIGIV
+
+package "Capa de Presentación\n(Swing)" as P {
+  [VentanaLogin]
+  [VentanaPrincipal]
+  [PanelProductos]
+  [PanelVenta]
+}
+
+package "Capa de Lógica de Negocio\n(Servicios)" as L {
+  [ServicioAuth]
+  [ServicioProducto]
+  [ServicioVenta]
+}
+
+package "Capa de Persistencia\n(DAO + JDBC)" as D {
+  [UsuarioDAO]
+  [ProductoDAO]
+  [VentaDAO]
+  [ClienteDAO]
+}
+
+database "MySQL 8.x\nsigiv_ferreteria" as DB
+
+P --> L
+L --> D
+D --> DB
+
+@enduml

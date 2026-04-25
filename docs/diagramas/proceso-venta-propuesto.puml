@@ -1,0 +1,41 @@
+@startuml proceso-venta-propuesto
+title Proceso propuesto de Venta con SIGIV (TO-BE)
+
+|Cliente|
+start
+:Consulta producto;
+
+|Vendedor (SIGIV)|
+:Busca producto por código\no descripción en el sistema;
+:Sistema muestra precio\ny stock en tiempo real;
+if (¿Stock suficiente?) then (sí)
+  :Agrega producto a la venta;
+  :Sistema calcula\nsubtotal y total;
+else (no)
+  :Sistema alerta falta de stock;
+  stop
+endif
+
+repeat
+  :Agrega más productos;
+repeat while (¿Más productos?) is (sí)
+->no;
+
+:Selecciona cliente\n(opcional) y forma de pago;
+
+if (Pago cta. cte.?) then (sí)
+  :Sistema valida límite\nde crédito del cliente;
+else (no)
+endif
+
+|Sistema|
+:Registra venta;
+:Descuenta stock;
+:Actualiza cta. cte.\nsi corresponde;
+:Registra en bitácora;
+:Imprime/exporta comprobante;
+
+|Cliente|
+:Recibe comprobante;
+stop
+@enduml
