@@ -4,7 +4,7 @@
 **Materia:** Seminario de Práctica Informática  
 **Docente:** [completar]  
 **Fecha:** Abril de 2026  
-**Repositorio GitHub:** [URL del repo - se completa al pushear]
+**Repositorio GitHub:** https://github.com/cirola/sigiv-ferreteria
 
 ---
 
@@ -314,7 +314,7 @@ Se desarrolló un prototipo operacional en Java + MySQL que implementa los módu
 - Registro de ventas transaccional (descuento de stock + cuenta corriente + bitácora, todo atómico con rollback).
 - Interfaz Swing con separación en capas (MVC + DAO).
 
-**Repositorio GitHub**: [completar URL tras push]
+**Repositorio GitHub**: https://github.com/cirola/sigiv-ferreteria
 
 **Credenciales de prueba**:
 
