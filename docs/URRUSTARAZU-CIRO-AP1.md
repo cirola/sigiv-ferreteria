@@ -1,14 +1,4 @@
-# Seminario de Práctica Informática - Actividad Práctica 1
-
-**Alumno:** Ciro Urrustarazu  
-**Materia:** Seminario de Práctica Informática  
-**Docente:** [completar]  
-**Fecha:** Abril de 2026  
-**Repositorio GitHub:** https://github.com/cirola/sigiv-ferreteria
-
----
-
-## Título del proyecto
+# Título del proyecto
 
 **SIGIV-SM — Sistema de Gestión de Inventario y Ventas para Ferretería San Martín**
 
@@ -157,7 +147,9 @@ Ferretería San Martín opera bajo la figura jurídica de Monotributo, con el du
 3. Cliente paga total o parcial.
 4. Dueño asienta pago en cuaderno y entrega recibo manuscrito.
 
-> **Figura 1**: diagrama del proceso de venta actual (`docs/diagramas/procesos-venta-actual.png`).
+![Figura 1: Proceso actual de venta al mostrador (AS-IS)](diagramas/procesos-venta-actual.png)
+
+*Figura 1 — Proceso actual de venta al mostrador (AS-IS).*
 
 ### 5.3. Reglas del negocio
 
@@ -187,7 +179,9 @@ Se propone el desarrollo de **SIGIV-SM**, una aplicación de escritorio multiusu
 - Un **servidor de base de datos MySQL** centralizado.
 - Una **red LAN** que conecta las estaciones de trabajo.
 
-> **Figura 2**: diagrama del proceso de venta propuesto con SIGIV (`docs/diagramas/proceso-venta-propuesto.png`).
+![Figura 2: Proceso propuesto de venta con SIGIV (TO-BE)](diagramas/proceso-venta-propuesto.png)
+
+*Figura 2 — Proceso propuesto de venta con SIGIV (TO-BE).*
 
 ### 6.2. Arquitectura técnica
 
@@ -199,7 +193,9 @@ Arquitectura en **3 capas**:
 
 Las operaciones que afectan múltiples tablas (ej. registrar venta → descontar stock + actualizar cta. cte. + escribir bitácora) se ejecutan dentro de una **transacción atómica** para garantizar consistencia.
 
-> **Figura 3**: diagrama de arquitectura (`docs/diagramas/arquitectura-sigiv.png`).
+![Figura 3: Arquitectura en 3 capas](diagramas/arquitectura-sigiv.png)
+
+*Figura 3 — Arquitectura en 3 capas del sistema SIGIV.*
 
 ### 6.3. Tecnologías
 
@@ -262,7 +258,9 @@ Los **flujos de trabajo** del PUD (requisitos, análisis, diseño, implementaci�
 
 ### 7.3. Diagrama de casos de uso
 
-> **Figura 4**: diagrama de casos de uso (`docs/diagramas/casos-uso-sigiv.png`).
+![Figura 4: Diagrama de casos de uso](diagramas/casos-uso-sigiv.png)
+
+*Figura 4 — Diagrama de casos de uso del sistema SIGIV.*
 
 Las relaciones principales son:
 

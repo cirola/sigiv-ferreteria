@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>URRUSTARAZU-CIRO-AP1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="estilo-pdf.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">URRUSTARAZU-CIRO-AP1</h1>
+</header>
+<div class="portada">
+<h1 id="universidad-empresarial-siglo-21">Universidad Empresarial Siglo
+21</h1>
+<h2 id="carrera-completar-carrera">Carrera: [completar carrera]</h2>
+<p> </p>
+<p> </p>
+<h1 id="actividad-práctica-1">Actividad Práctica 1</h1>
+<h2 id="análisis-y-definición-de-un-proyecto-informático">Análisis y
+Definición de un Proyecto Informático</h2>
+<p> </p>
+<h1 id="sigiv-sm">SIGIV-SM</h1>
+<h2
+id="sistema-de-gestión-de-inventario-y-ventas-para-ferretería-san-martín">Sistema
+de Gestión de Inventario y Ventas para Ferretería San Martín</h2>
+<p> </p>
+<p> </p>
+<p><strong>Materia:</strong> Seminario de Práctica Informática</p>
+<p><strong>Alumno:</strong> Ciro Urrustarazu</p>
+<p><strong>Email:</strong> cirourrustarazu16@gmail.com</p>
+<p><strong>Docente:</strong> [completar nombre del docente]</p>
+<p><strong>Año académico:</strong> 2026</p>
+<p><strong>Fecha de entrega:</strong> Abril de 2026</p>
+<p> </p>
+<p><strong>Repositorio GitHub:</strong>
+https://github.com/cirola/sigiv-ferreteria</p>
+</div>
+<h1 id="título-del-proyecto">Título del proyecto</h1>
+<p><strong>SIGIV-SM — Sistema de Gestión de Inventario y Ventas para
+Ferretería San Martín</strong></p>
+<hr />
+<h2 id="introducción">1. Introducción</h2>
+<p>Ferretería San Martín es un comercio de barrio de la ciudad de
+Córdoba, con más de 15 años de trayectoria, dedicado a la
+comercialización minorista de herramientas, materiales eléctricos,
+sanitarios, pinturas y artículos de construcción. Atiende tanto a
+clientes finales como a pequeños gremios (albañiles, plomeros, gasistas
+y electricistas) que operan con cuenta corriente.</p>
+<p>La organización cuenta con una dotación de tres personas —el dueño,
+quien también cumple funciones de administrador, y dos empleados que se
+desempeñan como vendedores de salón— y maneja un catálogo aproximado de
+2.000 productos distribuidos en un local de atención al público y un
+depósito trasero.</p>
+<p>Actualmente, toda la operatoria se gestiona de manera manual: las
+ventas se registran en un talonario de facturación y se asientan en un
+cuaderno; el control de stock se realiza a través de planillas de Excel
+que se actualizan de forma irregular; las cuentas corrientes de los
+clientes se llevan en un cuaderno aparte; y el vínculo con proveedores
+se coordina por teléfono y WhatsApp. Esta forma de trabajar ha generado
+pérdidas económicas por quiebres de stock, errores de facturación,
+demoras en la atención y una marcada imposibilidad de tomar decisiones
+informadas sobre el negocio.</p>
+<p>El presente proyecto propone el análisis, diseño y desarrollo de un
+sistema informático que automatice e integre los procesos de gestión de
+inventario y ventas, brindando a la organización información oportuna,
+confiable y centralizada para optimizar su operatoria diaria. El
+desarrollo se encara aplicando el <strong>Proceso Unificado de
+Desarrollo (PUD)</strong> como marco metodológico, e implementa un
+<strong>prototipo operacional</strong> en Java + MySQL que demuestra la
+viabilidad técnica de la propuesta.</p>
+<hr />
+<h2 id="justificación">2. Justificación</h2>
+<p>La gestión manual descripta ocasiona los siguientes problemas
+concretos, relevados durante el proceso de elicitación:</p>
+<ul>
+<li><strong>Quiebres de stock no detectados</strong>: se pierden entre 6
+y 10 ventas semanales por productos que se creían disponibles y que en
+realidad estaban agotados, o viceversa.</li>
+<li><strong>Sobrestock de productos de baja rotación</strong>: capital
+inmovilizado estimado en más del 20% del inventario total.</li>
+<li><strong>Errores de facturación y cobros</strong>: el promedio
+mensual de errores (precios desactualizados, productos mal cargados,
+descuentos mal aplicados) ronda los 15 casos.</li>
+<li><strong>Falta de trazabilidad de cuentas corrientes</strong>:
+imposibilidad de identificar deudas vencidas, saldos y cobros parciales,
+con pérdidas estimadas por incobrabilidad.</li>
+<li><strong>Inexistencia de reportes gerenciales</strong>: el dueño no
+cuenta con información consolidada de ventas, rentabilidad por línea,
+productos más vendidos, estacionalidad ni comportamiento de
+clientes.</li>
+<li><strong>Tiempos operativos elevados</strong>: cada cierre mensual
+implica al dueño entre 8 y 10 horas de tareas administrativas que
+podrían eliminarse.</li>
+</ul>
+<p>La implementación de un sistema informático específico para el rubro
+permitirá reducir significativamente los errores operativos, disminuir
+los tiempos de atención, garantizar la trazabilidad de las operaciones y
+proveer información estratégica para la toma de decisiones,
+contribuyendo directamente a la rentabilidad y sostenibilidad del
+negocio.</p>
+<p><strong>Viabilidad técnica</strong>: existen tecnologías abiertas y
+maduras (Java + MySQL) que permiten construir un sistema robusto a bajo
+costo; la infraestructura actual (una PC de escritorio en mostrador y
+otra en la oficina del dueño) es suficiente para operarlo en red
+local.</p>
+<p><strong>Viabilidad económica</strong>: el costo del desarrollo se
+recupera en menos de 6 meses solo considerando la reducción del 80% en
+ventas perdidas por quiebres de stock.</p>
+<p><strong>Viabilidad operativa</strong>: el dueño actúa como sponsor y
+los empleados manifestaron interés en la implementación, reduciendo el
+riesgo de resistencia al cambio.</p>
+<hr />
+<h2 id="definiciones-del-proyecto-y-del-sistema">3. Definiciones del
+proyecto y del sistema</h2>
+<h3 id="objetivo-general">3.1. Objetivo general</h3>
+<p>Desarrollar e implementar un sistema informático de escritorio que
+permita a Ferretería San Martín gestionar de forma integrada los
+procesos de inventario, ventas, compras y cuentas corrientes, mejorando
+la eficiencia operativa y la calidad de la información disponible para
+la toma de decisiones.</p>
+<h3 id="objetivos-específicos">3.2. Objetivos específicos</h3>
+<ul>
+<li>Automatizar el registro de ventas y la emisión de comprobantes.</li>
+<li>Controlar en tiempo real el stock disponible, generando alertas ante
+niveles mínimos.</li>
+<li>Registrar y consultar el movimiento histórico de productos
+(ingresos, egresos, ajustes).</li>
+<li>Administrar el padrón de clientes y proveedores, incluyendo cuentas
+corrientes.</li>
+<li>Proveer reportes gerenciales (ventas por período, productos más
+vendidos, stock valorizado, deudores).</li>
+<li>Implementar un esquema de usuarios y permisos que garantice la
+seguridad de la información.</li>
+</ul>
+<h3 id="alcance">3.3. Alcance</h3>
+<p><strong>Incluye:</strong></p>
+<ul>
+<li>Módulos de productos, stock, clientes, proveedores, ventas, compras,
+cuentas corrientes, usuarios y reportes.</li>
+<li>Interfaz gráfica de escritorio en Java (Swing).</li>
+<li>Base de datos relacional MySQL.</li>
+<li>Documentación técnica y de usuario.</li>
+</ul>
+<p><strong>No incluye (fuera de alcance):</strong></p>
+<ul>
+<li>Facturación electrónica AFIP (prevista para segunda etapa).</li>
+<li>Integración con medios de pago electrónicos (Mercado Pago,
+etc.).</li>
+<li>Aplicación móvil o versión web.</li>
+<li>Módulo de contabilidad general.</li>
+<li>E-commerce.</li>
+</ul>
+<h3 id="definición-del-sistema">3.4. Definición del sistema</h3>
+<p>El sistema, denominado <strong>SIGIV-SM</strong> (Sistema de Gestión
+de Inventario y Ventas - San Martín), es una aplicación de escritorio
+cliente-servidor con arquitectura en tres capas (presentación, lógica de
+negocio y persistencia), desarrollada en Java y con persistencia en
+MySQL. Se instalará en las PCs del local, conectadas a una base de datos
+centralizada en una de ellas actuando como servidor.</p>
+<hr />
+<h2 id="elicitación">4. Elicitación</h2>
+<h3 id="técnicas-aplicadas">4.1. Técnicas aplicadas</h3>
+<ul>
+<li><strong>Entrevistas abiertas y semiestructuradas</strong> con el
+dueño, orientadas a comprender la visión del negocio, los dolores
+actuales y los objetivos esperados.</li>
+<li><strong>Entrevistas focalizadas</strong> con los dos vendedores,
+para relevar la operatoria diaria de atención al público y el uso del
+Excel de stock.</li>
+<li><strong>Observación directa</strong> durante una jornada completa de
+trabajo, registrando los flujos reales de atención, consulta de precios,
+cobro y reposición.</li>
+<li><strong>Análisis documental</strong> de planillas de stock,
+talonarios, cuaderno de cuentas corrientes y remitos de
+proveedores.</li>
+</ul>
+<h3 id="requerimientos-funcionales-rf">4.2. Requerimientos funcionales
+(RF)</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF01</td>
+<td>El sistema permitirá registrar, modificar, consultar y dar de baja
+productos, con sus atributos (código, descripción, rubro, precio de
+costo, precio de venta, stock actual, stock mínimo, proveedor
+habitual).</td>
+</tr>
+<tr>
+<td>RF02</td>
+<td>El sistema permitirá registrar ventas con uno o varios productos,
+descontando automáticamente el stock.</td>
+</tr>
+<tr>
+<td>RF03</td>
+<td>El sistema permitirá seleccionar cliente en la venta; si es cliente
+con cuenta corriente, podrá registrarse venta a crédito.</td>
+</tr>
+<tr>
+<td>RF04</td>
+<td>El sistema permitirá registrar pagos parciales o totales de cuentas
+corrientes.</td>
+</tr>
+<tr>
+<td>RF05</td>
+<td>El sistema permitirá registrar compras a proveedores, incrementando
+el stock.</td>
+</tr>
+<tr>
+<td>RF06</td>
+<td>El sistema permitirá el alta, modificación y consulta de clientes y
+proveedores.</td>
+</tr>
+<tr>
+<td>RF07</td>
+<td>El sistema generará alertas cuando un producto alcance o esté por
+debajo de su stock mínimo.</td>
+</tr>
+<tr>
+<td>RF08</td>
+<td>El sistema permitirá emitir reportes: ventas por período, productos
+más vendidos, stock valorizado, clientes deudores, compras por
+proveedor.</td>
+</tr>
+<tr>
+<td>RF09</td>
+<td>El sistema permitirá gestionar usuarios con roles (Administrador,
+Vendedor) y controlar el acceso a las funciones según el rol.</td>
+</tr>
+<tr>
+<td>RF10</td>
+<td>El sistema registrará una bitácora (log) de operaciones críticas
+(ventas, ajustes de stock, modificación de precios).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="requerimientos-no-funcionales-rnf">4.3. Requerimientos no
+funcionales (RNF)</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF01</td>
+<td><strong>Usabilidad</strong>: la interfaz debe ser intuitiva y
+permitir a un vendedor sin experiencia previa realizar una venta en
+menos de 5 minutos de capacitación.</td>
+</tr>
+<tr>
+<td>RNF02</td>
+<td><strong>Rendimiento</strong>: el registro de una venta no debe
+demorar más de 2 segundos desde la confirmación.</td>
+</tr>
+<tr>
+<td>RNF03</td>
+<td><strong>Seguridad</strong>: las contraseñas se almacenarán cifradas
+(hash BCrypt con salt). El acceso al sistema requerirá
+autenticación.</td>
+</tr>
+<tr>
+<td>RNF04</td>
+<td><strong>Disponibilidad</strong>: el sistema debe operar durante el
+horario comercial (8 a 20 hs) sin caídas.</td>
+</tr>
+<tr>
+<td>RNF05</td>
+<td><strong>Confiabilidad</strong>: se realizará un backup automático
+diario de la base de datos.</td>
+</tr>
+<tr>
+<td>RNF06</td>
+<td><strong>Mantenibilidad</strong>: el código se desarrollará aplicando
+patrones (DAO, MVC) y estándares de codificación Java, facilitando su
+evolución.</td>
+</tr>
+<tr>
+<td>RNF07</td>
+<td><strong>Portabilidad</strong>: al estar desarrollado en Java, el
+sistema podrá ejecutarse en Windows o Linux sin modificaciones.</td>
+</tr>
+<tr>
+<td>RNF08</td>
+<td><strong>Escalabilidad</strong>: la arquitectura debe permitir
+incorporar nuevos módulos (facturación electrónica, e-commerce) sin
+rediseño.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conocimiento-del-negocio">5. Conocimiento del negocio</h2>
+<h3 id="descripción-de-la-organización">5.1. Descripción de la
+organización</h3>
+<p>Ferretería San Martín opera bajo la figura jurídica de Monotributo,
+con el dueño como responsable legal. Su modelo de negocio combina venta
+al mostrador (80% de la facturación) con cuenta corriente para clientes
+habituales del rubro construcción (20%). Los márgenes brutos promedian
+el 35%, con variaciones entre rubros (herramientas: 25%, pinturas: 40%,
+bulonería suelta: 50%).</p>
+<h3 id="procesos-del-negocio-as-is">5.2. Procesos del negocio
+(AS-IS)</h3>
+<p><strong>Proceso 1: Venta al mostrador</strong></p>
+<ol type="1">
+<li>Cliente consulta producto.</li>
+<li>Vendedor busca precio en planilla Excel o etiqueta física.</li>
+<li>Vendedor verifica existencia en depósito (manualmente).</li>
+<li>Vendedor arma pedido y totaliza con calculadora.</li>
+<li>Cliente paga (efectivo, transferencia o cuenta corriente).</li>
+<li>Vendedor emite comprobante talonario y asienta en cuaderno.</li>
+<li>Al cierre del día, el dueño descuenta manualmente del Excel de
+stock.</li>
+</ol>
+<p><strong>Proceso 2: Reposición de mercadería</strong></p>
+<ol type="1">
+<li>Dueño revisa “de memoria” o por planilla qué necesita reponer.</li>
+<li>Contacta proveedores por WhatsApp/teléfono.</li>
+<li>Recibe mercadería con remito.</li>
+<li>Carga manualmente ingreso en Excel de stock.</li>
+<li>Archiva remito en carpeta.</li>
+</ol>
+<p><strong>Proceso 3: Cobro de cuenta corriente</strong></p>
+<ol type="1">
+<li>Cliente se acerca a cancelar saldo.</li>
+<li>Dueño busca cliente en cuaderno y suma movimientos pendientes.</li>
+<li>Cliente paga total o parcial.</li>
+<li>Dueño asienta pago en cuaderno y entrega recibo manuscrito.</li>
+</ol>
+<figure>
+<img src="diagramas/procesos-venta-actual.png"
+alt="Figura 1: Proceso actual de venta al mostrador (AS-IS)" />
+<figcaption aria-hidden="true">Figura 1: Proceso actual de venta al
+mostrador (AS-IS)</figcaption>
+</figure>
+<p><em>Figura 1 — Proceso actual de venta al mostrador (AS-IS).</em></p>
+<h3 id="reglas-del-negocio">5.3. Reglas del negocio</h3>
+<ul>
+<li><strong>RN01</strong>: No se permite vender un producto con stock 0
+(salvo autorización del dueño).</li>
+<li><strong>RN02</strong>: Solo clientes registrados con cuenta
+corriente habilitada pueden comprar a crédito.</li>
+<li><strong>RN03</strong>: Todo producto debe pertenecer a un
+rubro.</li>
+<li><strong>RN04</strong>: El precio de venta se calcula como precio de
+costo × (1 + margen de rubro), pero puede ajustarse manualmente.</li>
+<li><strong>RN05</strong>: Solo el Administrador puede modificar
+precios, dar de alta productos nuevos o anular ventas.</li>
+<li><strong>RN06</strong>: Las ventas a cuenta corriente no pueden
+superar el crédito disponible del cliente.</li>
+</ul>
+<h3 id="actores-stakeholders">5.4. Actores / stakeholders</h3>
+<ul>
+<li><strong>Dueño (Administrador)</strong>: usuario final con control
+total. Sponsor del proyecto.</li>
+<li><strong>Vendedores</strong>: usuarios finales operativos.</li>
+<li><strong>Contador externo</strong>: recibe reportes mensuales (no
+opera el sistema).</li>
+<li><strong>Clientes y proveedores</strong>: beneficiarios
+indirectos.</li>
+</ul>
+<hr />
+<h2 id="propuesta-de-solución">6. Propuesta de solución</h2>
+<h3 id="descripción-general">6.1. Descripción general</h3>
+<p>Se propone el desarrollo de <strong>SIGIV-SM</strong>, una aplicación
+de escritorio multiusuario con arquitectura cliente-servidor en red
+local. El sistema estará compuesto por:</p>
+<ul>
+<li>Una <strong>aplicación cliente</strong> en Java (Swing) instalada en
+cada PC del local.</li>
+<li>Un <strong>servidor de base de datos MySQL</strong>
+centralizado.</li>
+<li>Una <strong>red LAN</strong> que conecta las estaciones de
+trabajo.</li>
+</ul>
+<figure>
+<img src="diagramas/proceso-venta-propuesto.png"
+alt="Figura 2: Proceso propuesto de venta con SIGIV (TO-BE)" />
+<figcaption aria-hidden="true">Figura 2: Proceso propuesto de venta con
+SIGIV (TO-BE)</figcaption>
+</figure>
+<p><em>Figura 2 — Proceso propuesto de venta con SIGIV (TO-BE).</em></p>
+<h3 id="arquitectura-técnica">6.2. Arquitectura técnica</h3>
+<p>Arquitectura en <strong>3 capas</strong>:</p>
+<ol type="1">
+<li><strong>Capa de presentación</strong>: interfaces gráficas
+desarrolladas con Swing, aplicando el patrón <strong>MVC</strong>.</li>
+<li><strong>Capa de lógica de negocio</strong>: clases de servicio
+(<code>ServicioAuth</code>, <code>ServicioProducto</code>,
+<code>ServicioVenta</code>) que implementan las reglas del negocio y
+orquestan las operaciones.</li>
+<li><strong>Capa de persistencia</strong>: patrón <strong>DAO</strong>
+con JDBC para el acceso a MySQL. Cada tabla con sus operaciones CRUD
+encapsuladas en una clase DAO.</li>
+</ol>
+<p>Las operaciones que afectan múltiples tablas (ej. registrar venta →
+descontar stock + actualizar cta. cte. + escribir bitácora) se ejecutan
+dentro de una <strong>transacción atómica</strong> para garantizar
+consistencia.</p>
+<figure>
+<img src="diagramas/arquitectura-sigiv.png"
+alt="Figura 3: Arquitectura en 3 capas" />
+<figcaption aria-hidden="true">Figura 3: Arquitectura en 3
+capas</figcaption>
+</figure>
+<p><em>Figura 3 — Arquitectura en 3 capas del sistema SIGIV.</em></p>
+<h3 id="tecnologías">6.3. Tecnologías</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 28%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Tecnología</th>
+<th>Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje</td>
+<td>Java 17+ (LTS)</td>
+<td>Lenguaje requerido por la consigna; maduro, portable, rico en
+bibliotecas.</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>Swing</td>
+<td>Nativo de Java, no requiere dependencias extra, suficiente para
+aplicación de gestión.</td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td>MySQL 8.x</td>
+<td>Motor requerido por la consigna; robusto, open source, ampliamente
+documentado.</td>
+</tr>
+<tr>
+<td>Driver JDBC</td>
+<td>MySQL Connector/J 8.3</td>
+<td>Driver oficial mantenido por Oracle.</td>
+</tr>
+<tr>
+<td>Gestor de dependencias</td>
+<td>Maven 3.9</td>
+<td>Estándar en proyectos Java empresariales.</td>
+</tr>
+<tr>
+<td>Hash de passwords</td>
+<td>jBCrypt 0.4</td>
+<td>Implementación madura del algoritmo BCrypt para cumplir RNF03.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="módulos-del-sistema">6.4. Módulos del sistema</h3>
+<ol type="1">
+<li><strong>Módulo de Seguridad</strong>: login, gestión de usuarios y
+roles.</li>
+<li><strong>Módulo de Productos e Inventario</strong>: ABM de productos,
+ajustes de stock, alertas.</li>
+<li><strong>Módulo de Clientes</strong>: ABM de clientes, cuentas
+corrientes.</li>
+<li><strong>Módulo de Proveedores</strong>: ABM de proveedores,
+historial de compras.</li>
+<li><strong>Módulo de Ventas</strong>: registro de ventas,
+comprobantes.</li>
+<li><strong>Módulo de Compras</strong>: registro de compras, recepción
+de mercadería.</li>
+<li><strong>Módulo de Reportes</strong>: generación de reportes
+gerenciales.</li>
+</ol>
+<p>El prototipo operacional entregado implementa los módulos
+<strong>Seguridad, Productos e Inventario, y Ventas</strong> (incluyendo
+cuentas corrientes básicas), cumpliendo con la definición de prototipo
+de Kendall &amp; Kendall (2011) como “modelo operacional que incluye
+solo algunas características del sistema final”, que se irán integrando
+en las iteraciones siguientes.</p>
+<h3 id="aplicación-del-proceso-unificado-de-desarrollo-pud">6.5.
+Aplicación del Proceso Unificado de Desarrollo (PUD)</h3>
+<p>El desarrollo se organiza en las cuatro fases del PUD:</p>
+<ul>
+<li><strong>Inicio (Inception)</strong> — <em>entrega actual</em>:
+análisis del modelo de negocio, definición del alcance, identificación
+de riesgos, elicitación de requerimientos y casos de uso
+principales.</li>
+<li><strong>Elaboración (Elaboration)</strong> — <em>próxima
+entrega</em>: análisis detallado, diseño de arquitectura (ya esbozado en
+esta entrega), modelo de dominio, diagrama de clases, modelo de datos
+consolidado.</li>
+<li><strong>Construcción (Construction)</strong>: desarrollo iterativo e
+incremental de los módulos, pruebas unitarias e integración.</li>
+<li><strong>Transición (Transition)</strong>: despliegue, capacitación
+al usuario, pruebas de aceptación, puesta en marcha.</li>
+</ul>
+<p>Los <strong>flujos de trabajo</strong> del PUD (requisitos, análisis,
+diseño, implementación, pruebas) se ejecutan transversalmente en cada
+fase, con distinta intensidad según la etapa. En esta fase de Inicio
+predominan los flujos de requisitos y análisis, ya iniciados.</p>
+<hr />
+<h2 id="inicio-del-análisis-casos-de-uso">7. Inicio del análisis: casos
+de uso</h2>
+<h3 id="actores-del-sistema">7.1. Actores del sistema</h3>
+<ul>
+<li><strong>Administrador</strong>: dueño de la ferretería. Acceso total
+al sistema.</li>
+<li><strong>Vendedor</strong>: empleado que opera ventas, consultas y
+cobros. Acceso restringido.</li>
+</ul>
+<h3 id="listado-de-casos-de-uso">7.2. Listado de casos de uso</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de uso</th>
+<th>Actor principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CU01</td>
+<td>Iniciar sesión</td>
+<td>Administrador, Vendedor</td>
+</tr>
+<tr>
+<td>CU02</td>
+<td>Gestionar productos (ABM)</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>CU03</td>
+<td>Consultar stock</td>
+<td>Administrador, Vendedor</td>
+</tr>
+<tr>
+<td>CU04</td>
+<td>Registrar venta</td>
+<td>Vendedor, Administrador</td>
+</tr>
+<tr>
+<td>CU05</td>
+<td>Anular venta</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>CU06</td>
+<td>Registrar compra</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>CU07</td>
+<td>Gestionar clientes</td>
+<td>Administrador, Vendedor</td>
+</tr>
+<tr>
+<td>CU08</td>
+<td>Gestionar proveedores</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>CU09</td>
+<td>Registrar pago de cuenta corriente</td>
+<td>Vendedor, Administrador</td>
+</tr>
+<tr>
+<td>CU10</td>
+<td>Generar reportes</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>CU11</td>
+<td>Gestionar usuarios</td>
+<td>Administrador</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diagrama-de-casos-de-uso">7.3. Diagrama de casos de uso</h3>
+<figure>
+<img src="diagramas/casos-uso-sigiv.png"
+alt="Figura 4: Diagrama de casos de uso" />
+<figcaption aria-hidden="true">Figura 4: Diagrama de casos de
+uso</figcaption>
+</figure>
+<p><em>Figura 4 — Diagrama de casos de uso del sistema SIGIV.</em></p>
+<p>Las relaciones principales son:</p>
+<ul>
+<li><code>Registrar venta</code> <strong>include</strong>
+<code>Consultar stock</code> (toda venta valida disponibilidad).</li>
+<li><code>Registrar venta</code> <strong>extend</strong>
+<code>Registrar pago de cuenta corriente</code> (cuando la venta es a
+crédito y el cliente cancela en el acto).</li>
+<li><code>Registrar compra</code> <strong>include</strong>
+<code>Gestionar proveedores</code> (si el proveedor no existe se crea en
+el momento).</li>
+</ul>
+<h3 id="descripción-de-casos-de-uso-principales">7.4. Descripción de
+casos de uso principales</h3>
+<h4 id="cu04-registrar-venta">CU04 — Registrar venta</h4>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actor principal</strong></td>
+<td>Vendedor</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>El vendedor está autenticado en el sistema.</td>
+</tr>
+<tr>
+<td><strong>Postcondición</strong></td>
+<td>La venta queda registrada, el stock actualizado y (si aplica) la
+cuenta corriente del cliente.</td>
+</tr>
+<tr>
+<td><strong>Flujo principal</strong></td>
+<td>1. El vendedor inicia una nueva venta. 2. Agrega productos
+buscándolos por código o descripción. 3. El sistema valida stock
+disponible y calcula subtotal. 4. El vendedor selecciona cliente
+(opcional) y forma de pago. 5. Confirma la venta. 6. El sistema registra
+la operación, actualiza stock, imprime comprobante.</td>
+</tr>
+<tr>
+<td><strong>Flujo alternativo A1</strong></td>
+<td>En paso 3, si no hay stock suficiente, el sistema alerta y no
+permite agregar el producto.</td>
+</tr>
+<tr>
+<td><strong>Flujo alternativo A2</strong></td>
+<td>En paso 4, si la forma de pago es cuenta corriente, el sistema
+valida que el cliente tenga cuenta habilitada y saldo disponible.</td>
+</tr>
+<tr>
+<td><strong>Excepciones</strong></td>
+<td>Caída de conexión a BD → el sistema informa y cancela la operación
+sin registrar cambios (rollback).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cu02-gestionar-productos">CU02 — Gestionar productos</h4>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actor principal</strong></td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>Administrador autenticado.</td>
+</tr>
+<tr>
+<td><strong>Postcondición</strong></td>
+<td>El producto queda registrado, modificado o dado de baja.</td>
+</tr>
+<tr>
+<td><strong>Flujo principal</strong></td>
+<td>1. Accede al módulo Productos. 2. Selecciona acción (alta,
+modificación, baja, consulta). 3. Ingresa o modifica los datos. 4. El
+sistema valida (código único, precios no negativos, rubro existente). 5.
+Confirma y el sistema persiste el cambio.</td>
+</tr>
+<tr>
+<td><strong>Excepciones</strong></td>
+<td>Código duplicado → el sistema avisa y no permite guardar.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cu10-generar-reportes">CU10 — Generar reportes</h4>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actor principal</strong></td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>Administrador autenticado.</td>
+</tr>
+<tr>
+<td><strong>Flujo principal</strong></td>
+<td>1. Selecciona tipo de reporte. 2. Define parámetros (rango de
+fechas, rubro, cliente). 3. El sistema consulta la BD y genera el
+reporte en pantalla con opción de exportar a PDF.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="prototipo-operacional">8. Prototipo operacional</h2>
+<p>Se desarrolló un prototipo operacional en Java + MySQL que implementa
+los módulos <strong>Seguridad</strong>, <strong>Productos</strong> y
+<strong>Ventas</strong>. El prototipo incluye:</p>
+<ul>
+<li>Conexión a base de datos MySQL vía JDBC con usuario dedicado (no
+root).</li>
+<li>Login con autenticación BCrypt.</li>
+<li>ABM completo de productos con validaciones de negocio.</li>
+<li>Registro de ventas transaccional (descuento de stock + cuenta
+corriente + bitácora, todo atómico con rollback).</li>
+<li>Interfaz Swing con separación en capas (MVC + DAO).</li>
+</ul>
+<p><strong>Repositorio GitHub</strong>:
+https://github.com/cirola/sigiv-ferreteria</p>
+<p><strong>Credenciales de prueba</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Contraseña</th>
+<th>Rol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>admin123</td>
+<td>ADMIN</td>
+</tr>
+<tr>
+<td>vendedor1</td>
+<td>admin123</td>
+<td>VENDEDOR</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Instrucciones de ejecución</strong>: ver
+<code>README.md</code> del repositorio.</p>
+<hr />
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li>Kendall, K., &amp; Kendall, J. (2011). <em>Análisis y diseño de
+sistemas</em> (8a ed.). Pearson Education.</li>
+<li>Jacobson, I., Booch, G., &amp; Rumbaugh, J. (2000). <em>El proceso
+unificado de desarrollo de software</em>. Addison-Wesley.</li>
+<li>Sommerville, I. (2011). <em>Ingeniería del software</em> (9a ed.).
+Pearson Education.</li>
+<li>Oracle Corporation. (2024). <em>MySQL 8.0 Reference Manual</em>.
+https://dev.mysql.com/doc/</li>
+</ul>
+</body>
+</html>

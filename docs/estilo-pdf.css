@@ -1,0 +1,146 @@
+/* Estilo para conversión MD -> HTML -> PDF (Chrome headless)
+   Cumple con: A4, Calibri 11, espaciado simple, márgenes APA 2.5cm */
+
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@page {
+  size: A4;
+  margin: 2.5cm 2.5cm 2.5cm 2.5cm;
+}
+
+html, body {
+  font-family: "Calibri", "Carlito", "Helvetica", sans-serif;
+  font-size: 11pt;
+  line-height: 1.15;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Calibri", "Carlito", "Helvetica", sans-serif;
+  color: #1a3a6c;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h1 {
+  font-size: 18pt;
+  border-bottom: 2px solid #1a3a6c;
+  padding-bottom: 4px;
+  margin-top: 18pt;
+  margin-bottom: 10pt;
+}
+
+h2 {
+  font-size: 14pt;
+  margin-top: 16pt;
+  margin-bottom: 8pt;
+}
+
+h3 {
+  font-size: 12pt;
+  margin-top: 12pt;
+  margin-bottom: 6pt;
+}
+
+h4 {
+  font-size: 11pt;
+  font-style: italic;
+  margin-top: 10pt;
+  margin-bottom: 4pt;
+}
+
+p {
+  text-align: justify;
+  margin: 6pt 0;
+  orphans: 3;
+  widows: 3;
+}
+
+ul, ol {
+  margin: 6pt 0 6pt 18pt;
+  padding: 0;
+}
+
+li {
+  margin: 2pt 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8pt 0;
+  font-size: 10pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #888;
+  padding: 4pt 6pt;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #e8eef7;
+  font-weight: bold;
+}
+
+code {
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 9.5pt;
+  background-color: #f4f4f4;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 9pt;
+  background-color: #f4f4f4;
+  padding: 8pt;
+  border-left: 3px solid #1a3a6c;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+blockquote {
+  border-left: 3px solid #888;
+  margin: 8pt 0;
+  padding: 4pt 12pt;
+  color: #555;
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10pt auto;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10pt 0;
+}
+
+/* Portada */
+.portada {
+  text-align: center;
+  page-break-after: always;
+  break-after: page;
+  padding-top: 6cm;
+}
+
+.portada h1 {
+  font-size: 22pt;
+  border: none;
+}
