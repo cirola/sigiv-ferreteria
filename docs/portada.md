@@ -27,7 +27,7 @@
 
 **Email:** cirourrustarazu16@gmail.com
 
-**Docente:** [completar nombre del docente]
+**Docente:** Hugo Frias
 
 **Año académico:** 2026
 
