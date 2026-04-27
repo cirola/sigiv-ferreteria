@@ -1,8 +1,7 @@
-::: {.portada}
 
 # Universidad Empresarial Siglo 21
 
-## Carrera: [completar carrera]
+##  Licenciatura en Informatíca
 
 &nbsp;
 
@@ -37,4 +36,4 @@
 
 **Repositorio GitHub:** https://github.com/cirola/sigiv-ferreteria
 
-:::
+
