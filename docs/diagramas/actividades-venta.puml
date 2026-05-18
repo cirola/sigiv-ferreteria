@@ -1,0 +1,58 @@
+@startuml actividades-venta
+title Diagrama de actividades - Registrar venta
+
+start
+:Vendedor inicia nueva venta;
+repeat
+  :Buscar producto por codigo o descripcion;
+  :Ingresar cantidad;
+  if (stock suficiente?) then (si)
+    :Agregar a la lista de detalle;
+    :Recalcular subtotal y total;
+  else (no)
+    :Mostrar alerta de stock insuficiente;
+  endif
+repeat while (mas productos?) is (si)
+->no;
+
+:Seleccionar cliente (opcional);
+:Seleccionar forma de pago;
+
+if (forma de pago = CTA_CTE?) then (si)
+  if (cliente tiene cta cte habilitada y credito disponible?) then (si)
+    :Marcar venta a credito;
+  else (no)
+    :Rechazar y volver a seleccion de forma de pago;
+    stop
+  endif
+else (no)
+  :Marcar venta de contado;
+endif
+
+:Confirmar venta;
+:Iniciar transaccion BD;
+
+fork
+  :INSERT ventas;
+fork again
+  :INSERT detalle_ventas (N filas);
+fork again
+  :UPDATE stock por cada producto;
+fork again
+  if (cta_cte?) then (si)
+    :UPDATE saldo cliente;
+    :INSERT movimientos_cta_cte;
+  endif
+end fork
+
+if (todas las operaciones OK?) then (si)
+  :COMMIT;
+  :Imprimir comprobante;
+  :Registrar en bitacora;
+else (no)
+  :ROLLBACK;
+  :Mostrar error;
+endif
+stop
+
+@enduml

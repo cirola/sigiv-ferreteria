@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>URRUSTARAZU-CIRO-AP2</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="estilo-pdf.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">URRUSTARAZU-CIRO-AP2</h1>
+</header>
+<h1 id="universidad-empresarial-siglo-21">Universidad Empresarial Siglo
+21</h1>
+<h2 id="licenciatura-en-informática">Licenciatura en Informática</h2>
+<p> </p>
+<p> </p>
+<h1 id="actividad-práctica-2">Actividad Práctica 2</h1>
+<h2
+id="diseño-implementación-y-pruebas-de-un-proyecto-informático">Diseño,
+Implementación y Pruebas de un Proyecto Informático</h2>
+<p> </p>
+<h1 id="sigiv-sm">SIGIV-SM</h1>
+<h2
+id="sistema-de-gestión-de-inventario-y-ventas-para-ferretería-san-martín">Sistema
+de Gestión de Inventario y Ventas para Ferretería San Martín</h2>
+<p> </p>
+<p> </p>
+<p><strong>Materia:</strong> Seminario de Práctica Informática</p>
+<p><strong>Alumno:</strong> Ciro Urrustarazu</p>
+<p><strong>Email:</strong> cirourrustarazu16@gmail.com</p>
+<p><strong>Docente:</strong> Hugo Frias</p>
+<p><strong>Año académico:</strong> 2026</p>
+<p><strong>Fecha de entrega:</strong> Mayo de 2026</p>
+<p> </p>
+<p><strong>Repositorio GitHub:</strong>
+https://github.com/cirola/sigiv-ferreteria</p>
+<h1 id="introducción">Introducción</h1>
+<p>El presente trabajo constituye la <strong>segunda entrega</strong>
+del proyecto <strong>SIGIV-SM — Sistema de Gestión de Inventario y
+Ventas para Ferretería San Martín</strong>, continuación de la Actividad
+Práctica 1 en la materia <em>Seminario de Práctica Informática</em> de
+la Licenciatura en Informática (Universidad Empresarial Siglo 21).</p>
+<p>Recupera el contexto, justificación y requerimientos definidos en la
+AP1 y avanza con la aplicación completa de los modelos de
+<strong>análisis, diseño, implementación y pruebas</strong> del
+<strong>Proceso Unificado de Desarrollo (PUD)</strong>, presentando los
+artefactos UML correspondientes, el modelo de datos relacional con su
+Diagrama Entidad-Relación, las consultas SQL para gestionar la base, y
+las definiciones de comunicación entre los componentes del sistema.</p>
+<p>El sistema sigue siendo una aplicación de escritorio multiusuario
+para una ferretería de barrio cordobesa, desarrollada en <strong>Java
+17+</strong> con persistencia en <strong>MySQL 8.x</strong>,
+arquitectura en tres capas (presentación / lógica / persistencia) y
+patrones <strong>MVC + DAO</strong>. El prototipo operacional —ya
+iniciado en la AP1— se consolida en esta entrega cubriendo los módulos
+de Seguridad, Productos / Inventario y Ventas (incluyendo cuentas
+corrientes básicas), con operaciones transaccionales y rollback
+automático ante error.</p>
+<p><strong>Repositorio GitHub:</strong>
+https://github.com/cirola/sigiv-ferreteria</p>
+<hr />
+<h1 id="resumen-del-proyecto-recuperado-de-ap1">1. Resumen del proyecto
+(recuperado de AP1)</h1>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Organización</strong></td>
+<td>Ferretería San Martín — comercio minorista de barrio en Córdoba, 15
+años de trayectoria, 3 empleados, ≈ 2.000 productos.</td>
+</tr>
+<tr>
+<td><strong>Problema</strong></td>
+<td>Operatoria 100% manual: ventas en talonario, stock en Excel
+desactualizado, cuentas corrientes en cuaderno. Pérdidas por quiebres de
+stock, errores de facturación, sin reportes gerenciales.</td>
+</tr>
+<tr>
+<td><strong>Solución</strong></td>
+<td>SIGIV-SM: aplicación de escritorio cliente-servidor en LAN que
+integra inventario, ventas, compras y cuentas corrientes.</td>
+</tr>
+<tr>
+<td><strong>Tecnología</strong></td>
+<td>Java 17+ (Swing), MySQL 8.x, Maven, JDBC, jBCrypt.</td>
+</tr>
+<tr>
+<td><strong>Metodología</strong></td>
+<td>Proceso Unificado de Desarrollo (PUD) — fases de Inicio (AP1) y
+Elaboración / Construcción (AP2).</td>
+</tr>
+<tr>
+<td><strong>Entregable</strong></td>
+<td>Prototipo operacional según Kendall &amp; Kendall (2011): “modelo
+operacional que incluye solo algunas características del sistema
+final”.</td>
+</tr>
+</tbody>
+</table>
+<p>Los <strong>requerimientos funcionales (RF01–RF10)</strong> y
+<strong>no funcionales (RNF01–RNF08)</strong> se mantienen sin cambios
+respecto del documento AP1.</p>
+<hr />
+<h1 id="etapa-de-análisis">2. Etapa de Análisis</h1>
+<p>La fase de análisis del PUD parte de los requerimientos relevados y
+produce un <strong>modelo conceptual</strong> del dominio del problema,
+independiente de la tecnología, que será la base para el diseño.</p>
+<h2 id="modelo-de-dominio">2.1. Modelo de dominio</h2>
+<p>A partir de los sustantivos identificados en los casos de uso y las
+reglas del negocio, se definieron las siguientes <strong>clases
+conceptuales</strong> y sus relaciones:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Clase conceptual</th>
+<th>Rol en el dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usuario</strong></td>
+<td>Operador del sistema (Administrador o Vendedor). Autentica e
+identifica al responsable de cada operación.</td>
+</tr>
+<tr>
+<td><strong>Rol</strong></td>
+<td>Conjunto de permisos asociados a un usuario (Administrador,
+Vendedor).</td>
+</tr>
+<tr>
+<td><strong>Producto</strong></td>
+<td>Artículo comercializado. Tiene código, precio, stock y pertenece a
+un rubro.</td>
+</tr>
+<tr>
+<td><strong>Rubro</strong></td>
+<td>Categoría comercial (Herramientas, Pinturas, Sanitarios, etc.) con
+margen sugerido.</td>
+</tr>
+<tr>
+<td><strong>Proveedor</strong></td>
+<td>Tercero al que se le compran productos.</td>
+</tr>
+<tr>
+<td><strong>Cliente</strong></td>
+<td>Persona física/jurídica a la que se le vende. Puede operar con
+cuenta corriente.</td>
+</tr>
+<tr>
+<td><strong>Venta</strong></td>
+<td>Operación comercial encabezada por un usuario, con uno o varios
+productos.</td>
+</tr>
+<tr>
+<td><strong>DetalleVenta</strong></td>
+<td>Línea de venta: producto, cantidad, precio unitario, subtotal.</td>
+</tr>
+<tr>
+<td><strong>Compra</strong></td>
+<td>Recepción de mercadería de un proveedor.</td>
+</tr>
+<tr>
+<td><strong>DetalleCompra</strong></td>
+<td>Línea de compra: producto, cantidad, costo.</td>
+</tr>
+<tr>
+<td><strong>MovimientoCtaCte</strong></td>
+<td>Asiento de débito o crédito en la cuenta corriente de un
+cliente.</td>
+</tr>
+<tr>
+<td><strong>Bitácora</strong></td>
+<td>Registro de auditoría de operaciones críticas.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diagrama-de-clases-conceptual">2.1.1. Diagrama de clases
+conceptual</h3>
+<p>El detalle visual del modelo se presenta en el <strong>Diagrama de
+clases</strong> (sección 3.2), ya que en el prototipo el modelo
+conceptual y el de diseño coinciden en estructura (los atributos
+técnicos se especifican en el diseño).</p>
+<h2 id="refinamiento-de-casos-de-uso">2.2. Refinamiento de casos de
+uso</h2>
+<p>Se retoman los casos de uso del documento AP1 (CU01–CU11) y se
+profundiza la descripción de los críticos. A modo de ejemplo, el caso
+central <strong>CU04 Registrar venta</strong> se documenta con flujo
+principal, flujos alternativos y excepciones:</p>
+<h3 id="cu04-registrar-venta-descripción-extendida">CU04 — Registrar
+venta (descripción extendida)</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identificador</strong></td>
+<td>CU04</td>
+</tr>
+<tr>
+<td><strong>Actor principal</strong></td>
+<td>Vendedor (o Administrador)</td>
+</tr>
+<tr>
+<td><strong>Stakeholders</strong></td>
+<td>Cliente (recibe comprobante), Dueño (consume reportes)</td>
+</tr>
+<tr>
+<td><strong>Precondición</strong></td>
+<td>El usuario está autenticado en el sistema.</td>
+</tr>
+<tr>
+<td><strong>Postcondición de éxito</strong></td>
+<td>La venta queda registrada con estado CONFIRMADA, el stock de cada
+producto vendido se descuenta, y —si la forma de pago es Cta. Cte.— se
+actualiza el saldo del cliente y se inserta un movimiento DEBE.</td>
+</tr>
+<tr>
+<td><strong>Postcondición de fallo</strong></td>
+<td>Ninguna escritura en BD (rollback de la transacción). El usuario
+recibe un mensaje de error.</td>
+</tr>
+<tr>
+<td><strong>Disparador</strong></td>
+<td>El vendedor selecciona “Nueva venta”.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Flujo principal:</strong></p>
+<ol type="1">
+<li>El vendedor inicia una nueva venta.</li>
+<li>Busca un producto por código o descripción.</li>
+<li>El sistema muestra el producto y su stock disponible.</li>
+<li>El vendedor indica la cantidad y agrega el ítem.</li>
+<li>El sistema valida stock, calcula subtotal y actualiza el total.</li>
+<li>Se repiten los pasos 2-5 hasta completar la venta.</li>
+<li>El vendedor selecciona forma de pago (Efectivo / Transferencia /
+Cta. Cte.) y opcionalmente un cliente.</li>
+<li>El vendedor confirma la venta.</li>
+<li>El sistema inicia una transacción atómica:
+<ul>
+<li>Inserta la cabecera de la venta.</li>
+<li>Inserta el detalle (N líneas).</li>
+<li>Descuenta el stock de cada producto.</li>
+<li>Si es Cta. Cte., actualiza el saldo del cliente e inserta el
+movimiento DEBE.</li>
+<li>Inserta un asiento en la bitácora.</li>
+</ul></li>
+<li>Si todas las operaciones son exitosas, ejecuta <code>COMMIT</code> y
+muestra “Venta registrada N° X” con opción a imprimir comprobante.</li>
+</ol>
+<p><strong>Flujos alternativos:</strong></p>
+<ul>
+<li><strong>FA1 — Stock insuficiente</strong> (paso 5): el sistema
+rechaza el ítem y muestra alerta. El vendedor puede reducir la cantidad
+o quitar el producto.</li>
+<li><strong>FA2 — Cliente sin cta. cte. habilitada</strong> (paso 7): si
+elige Cta. Cte. pero el cliente no la tiene o excede el límite de
+crédito, el sistema fuerza otra forma de pago.</li>
+<li><strong>FA3 — Cancelación</strong> (cualquier paso): el vendedor
+cierra la pantalla y el sistema descarta la venta en curso (no había
+escritura previa).</li>
+</ul>
+<p><strong>Excepciones:</strong></p>
+<ul>
+<li><strong>E1 — Caída de la base de datos</strong> (paso 9): la
+transacción se aborta automáticamente, no queda registro y se informa el
+error.</li>
+<li><strong>E2 — Concurrencia</strong> (paso 9): si otro usuario vendió
+la misma unidad simultáneamente, la validación de stock dentro de la
+transacción detiene la operación.</li>
+</ul>
+<h2 id="glosario-del-dominio">2.3. Glosario del dominio</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cta. Cte. (Cuenta corriente)</strong></td>
+<td>Modalidad de venta a crédito para clientes habituales con límite y
+saldo.</td>
+</tr>
+<tr>
+<td><strong>Quiebre de stock</strong></td>
+<td>Situación en la que un cliente solicita un producto y no hay
+existencias disponibles.</td>
+</tr>
+<tr>
+<td><strong>Rubro</strong></td>
+<td>Familia comercial de productos (Herramientas, Pinturas,
+Sanitarios…).</td>
+</tr>
+<tr>
+<td><strong>Bitácora</strong></td>
+<td>Log auditable de operaciones críticas.</td>
+</tr>
+<tr>
+<td><strong>Comprobante interno</strong></td>
+<td>Documento no fiscal emitido al cliente al cerrar una venta.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="etapa-de-diseño">3. Etapa de Diseño</h1>
+<p>La fase de diseño traduce el modelo conceptual en una estructura
+técnica concreta sobre la plataforma elegida (Java + MySQL). El sistema
+se organiza en <strong>tres capas</strong> (presentación, lógica de
+negocio, persistencia) aplicando los patrones <strong>MVC</strong> en la
+presentación y <strong>DAO</strong> en la persistencia, con un
+<strong>Singleton</strong> para el manejo de la conexión a BD.</p>
+<h2 id="arquitectura">3.1. Arquitectura</h2>
+<figure>
+<img src="diagramas/arquitectura-sigiv.png"
+alt="Arquitectura en 3 capas" />
+<figcaption aria-hidden="true">Arquitectura en 3 capas</figcaption>
+</figure>
+<p><em>Figura 1 — Arquitectura en 3 capas (reutilizada de AP1).</em></p>
+<ul>
+<li><strong>Capa de presentación</strong>: ventanas Swing organizadas
+como vistas MVC (<code>VentanaLogin</code>,
+<code>VentanaPrincipal</code>, <code>PanelProductos</code>,
+<code>PanelVenta</code>). Las vistas delegan la lógica en los
+servicios.</li>
+<li><strong>Capa de lógica de negocio</strong>: clases
+<code>Servicio*</code> que orquestan la operación, ejecutan las reglas
+de negocio y manejan transacciones (<code>ServicioAuth</code>,
+<code>ServicioProducto</code>, <code>ServicioVenta</code>).</li>
+<li><strong>Capa de persistencia</strong>: clases <code>*DAO</code> con
+sentencias JDBC parametrizadas. Cada DAO encapsula el acceso a una
+tabla.</li>
+<li><strong>Capa transversal</strong>: <code>ConexionBD</code>
+(Singleton) provee <code>Connection</code> a la BD MySQL.
+<code>HashGen</code> y <code>SmokeTest</code> son utilidades.</li>
+</ul>
+<h2 id="diagrama-de-clases">3.2. Diagrama de clases</h2>
+<figure>
+<img src="diagramas/clases-sigiv.png" alt="Diagrama de clases" />
+<figcaption aria-hidden="true">Diagrama de clases</figcaption>
+</figure>
+<p><em>Figura 2 — Diagrama de clases del sistema (modelo / servicios /
+DAO).</em></p>
+<p><strong>Decisiones de diseño clave:</strong></p>
+<ul>
+<li>Las clases del paquete <code>modelo</code> son
+<strong>POJOs</strong> (Plain Old Java Objects) que reflejan las
+entidades del dominio. No tienen lógica de persistencia.</li>
+<li>Los <strong>servicios</strong> son los únicos que abren/cierran
+transacciones. Los DAO reciben la <code>Connection</code> como parámetro
+cuando participan de una transacción multi-tabla.</li>
+<li>La conexión a BD se gestiona con un <strong>Singleton</strong>
+(<code>ConexionBD</code>) que lee <code>config.properties</code>.</li>
+<li>Las <strong>constraints de negocio</strong> (stock no negativo, no
+vender sin cta. cte. a clientes sin cuenta) se aplican simultáneamente
+en el código y en la BD (CHECK constraints + ENUM) para defensa en
+profundidad.</li>
+</ul>
+<h2 id="diagrama-de-secuencia-cu04-registrar-venta">3.3. Diagrama de
+secuencia — CU04 Registrar venta</h2>
+<figure>
+<img src="diagramas/secuencia-registrar-venta.png"
+alt="Secuencia: Registrar venta a cta. cte." />
+<figcaption aria-hidden="true">Secuencia: Registrar venta a cta.
+cte.</figcaption>
+</figure>
+<p><em>Figura 3 — Diagrama de secuencia del caso de uso “Registrar
+venta” para forma de pago Cta. Cte.</em></p>
+<p>El diagrama muestra cómo <code>ServicioVenta</code> actúa como
+<strong>transaction script</strong>: obtiene la conexión, deshabilita el
+auto-commit, ejecuta las operaciones en cascada y termina con
+<code>commit()</code> o <code>rollback()</code> según el resultado.</p>
+<h2 id="diagrama-de-actividades-registrar-venta">3.4. Diagrama de
+actividades — Registrar venta</h2>
+<figure>
+<img src="diagramas/actividades-venta.png"
+alt="Actividades: Registrar venta" />
+<figcaption aria-hidden="true">Actividades: Registrar venta</figcaption>
+</figure>
+<p><em>Figura 4 — Diagrama de actividades del proceso completo de
+registrar venta, incluyendo validaciones, decisión de forma de pago y
+manejo transaccional.</em></p>
+<p>El bloque <code>fork</code>/<code>end fork</code> representa que las
+cuatro operaciones contra la BD se ejecutan en una <strong>transacción
+atómica</strong>: o todas se confirman, o ninguna queda persistida.</p>
+<h2 id="diagrama-de-componentes">3.5. Diagrama de componentes</h2>
+<figure>
+<img src="diagramas/componentes-sigiv.png"
+alt="Componentes del sistema" />
+<figcaption aria-hidden="true">Componentes del sistema</figcaption>
+</figure>
+<p><em>Figura 5 — Componentes deployables del sistema: cliente Java
+empaquetado como JAR, librerías externas (JDBC, jBCrypt) y servidor
+MySQL.</em></p>
+<h2 id="patrones-de-diseño-aplicados">3.6. Patrones de diseño
+aplicados</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Patrón</th>
+<th>Dónde se aplica</th>
+<th>Beneficio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MVC</strong></td>
+<td>Capa de presentación (vista Swing ↔︎ servicio ↔︎ modelo).</td>
+<td>Separa UI de lógica; cada panel es testeable de forma aislada.</td>
+</tr>
+<tr>
+<td><strong>DAO (Data Access Object)</strong></td>
+<td><code>UsuarioDAO</code>, <code>ProductoDAO</code>,
+<code>ClienteDAO</code>, <code>VentaDAO</code>,
+<code>RubroDAO</code>.</td>
+<td>Aísla SQL del resto del código; permite cambiar motor de BD sin
+tocar servicios.</td>
+</tr>
+<tr>
+<td><strong>Singleton</strong></td>
+<td><code>ConexionBD</code>.</td>
+<td>Una sola fuente de conexiones a BD configurada vía
+<code>config.properties</code>.</td>
+</tr>
+<tr>
+<td><strong>Transaction Script</strong></td>
+<td>Métodos <code>registrarVenta</code>, <code>registrarPago</code> en
+los servicios.</td>
+<td>Encapsula operaciones multi-tabla en una unidad atómica con
+rollback.</td>
+</tr>
+<tr>
+<td><strong>Layered Architecture</strong></td>
+<td>Vista → Servicio → DAO → BD.</td>
+<td>Cada capa solo conoce a su inmediata inferior; alta cohesión, bajo
+acoplamiento.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="etapa-de-implementación">4. Etapa de Implementación</h1>
+<h2 id="stack-y-estructura-del-prototipo">4.1. Stack y estructura del
+prototipo</h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Tecnología</th>
+<th>Versión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje</td>
+<td>Java</td>
+<td>17+ (probado con JDK 21 y 25)</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Apache Maven</td>
+<td>3.9+</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>Swing</td>
+<td>(Java estándar)</td>
+</tr>
+<tr>
+<td>BD</td>
+<td>MySQL</td>
+<td>8.x / 9.x</td>
+</tr>
+<tr>
+<td>Driver</td>
+<td>MySQL Connector/J</td>
+<td>8.3</td>
+</tr>
+<tr>
+<td>Hash</td>
+<td>jBCrypt</td>
+<td>0.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Estructura de paquetes:</strong></p>
+<pre><code>src/main/java/com/sigiv/
+├── App.java                # Entry point
+├── util/
+│   ├── ConexionBD.java     # Singleton conexión
+│   ├── HashGen.java        # Utilidad BCrypt
+│   └── SmokeTest.java      # Test end-to-end sin UI
+├── modelo/                 # POJOs del dominio
+│   ├── Usuario, Rol, Producto, Rubro, Cliente,
+│   ├── Venta, DetalleVenta
+├── dao/                    # CRUD por tabla
+│   ├── UsuarioDAO, ProductoDAO, ClienteDAO,
+│   ├── VentaDAO, RubroDAO
+├── servicio/               # Lógica de negocio
+│   ├── ServicioAuth, ServicioProducto, ServicioVenta
+└── vista/                  # UI Swing
+    ├── VentanaLogin, VentanaPrincipal,
+    ├── PanelProductos, PanelVenta</code></pre>
+<h2 id="fragmentos-de-código-representativos">4.2. Fragmentos de código
+representativos</h2>
+<h3 id="singleton-de-conexión">4.2.1. Singleton de conexión</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// src/main/java/com/sigiv/util/ConexionBD.java</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">final</span> <span class="kw">class</span> ConexionBD <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> ConexionBD instancia<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="bu">String</span> url<span class="op">,</span> user<span class="op">,</span> password<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">ConexionBD</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Properties</span> p <span class="op">=</span> <span class="kw">new</span> <span class="bu">Properties</span><span class="op">();</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">InputStream</span> in <span class="op">=</span> <span class="fu">getClass</span><span class="op">().</span><span class="fu">getResourceAsStream</span><span class="op">(</span><span class="st">&quot;/config.properties&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            p<span class="op">.</span><span class="fu">load</span><span class="op">(</span>in<span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span> <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span>e<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">url</span>      <span class="op">=</span> p<span class="op">.</span><span class="fu">getProperty</span><span class="op">(</span><span class="st">&quot;db.url&quot;</span><span class="op">);</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">user</span>     <span class="op">=</span> p<span class="op">.</span><span class="fu">getProperty</span><span class="op">(</span><span class="st">&quot;db.user&quot;</span><span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">password</span> <span class="op">=</span> p<span class="op">.</span><span class="fu">getProperty</span><span class="op">(</span><span class="st">&quot;db.password&quot;</span><span class="op">);</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">synchronized</span> ConexionBD <span class="fu">getInstance</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>instancia <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> instancia <span class="op">=</span> <span class="kw">new</span> <span class="fu">ConexionBD</span><span class="op">();</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> instancia<span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Connection</span> <span class="fu">getConnection</span><span class="op">()</span> <span class="kw">throws</span> <span class="bu">SQLException</span> <span class="op">{</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">DriverManager</span><span class="op">.</span><span class="fu">getConnection</span><span class="op">(</span>url<span class="op">,</span> user<span class="op">,</span> password<span class="op">);</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="servicio-de-venta-con-transacción">4.2.2. Servicio de venta con
+transacción</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// extracto - src/main/java/com/sigiv/servicio/ServicioVenta.java</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">registrarVenta</span><span class="op">(</span>Venta v<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span> <span class="op">(</span><span class="bu">Connection</span> conn <span class="op">=</span> ConexionBD<span class="op">.</span><span class="fu">getInstance</span><span class="op">().</span><span class="fu">getConnection</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        conn<span class="op">.</span><span class="fu">setAutoCommit</span><span class="op">(</span><span class="kw">false</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> ventaId <span class="op">=</span> ventaDAO<span class="op">.</span><span class="fu">insertar</span><span class="op">(</span>v<span class="op">,</span> conn<span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span>DetalleVenta d <span class="op">:</span> v<span class="op">.</span><span class="fu">getDetalles</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                d<span class="op">.</span><span class="fu">setVentaId</span><span class="op">(</span>ventaId<span class="op">);</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                ventaDAO<span class="op">.</span><span class="fu">insertarDetalle</span><span class="op">(</span>d<span class="op">,</span> conn<span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                productoDAO<span class="op">.</span><span class="fu">descontarStock</span><span class="op">(</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                    d<span class="op">.</span><span class="fu">getProducto</span><span class="op">().</span><span class="fu">getId</span><span class="op">(),</span> d<span class="op">.</span><span class="fu">getCantidad</span><span class="op">(),</span> conn<span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>v<span class="op">.</span><span class="fu">getFormaPago</span><span class="op">()</span> <span class="op">==</span> FormaPago<span class="op">.</span><span class="fu">CTA_CTE</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                clienteDAO<span class="op">.</span><span class="fu">actualizarSaldo</span><span class="op">(</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                    v<span class="op">.</span><span class="fu">getCliente</span><span class="op">().</span><span class="fu">getId</span><span class="op">(),</span> v<span class="op">.</span><span class="fu">getTotal</span><span class="op">(),</span> conn<span class="op">);</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            conn<span class="op">.</span><span class="fu">commit</span><span class="op">();</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> ventaId<span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">Exception</span> ex<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            conn<span class="op">.</span><span class="fu">rollback</span><span class="op">();</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> ex<span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="compilación-y-ejecución">4.3. Compilación y ejecución</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Crear la base</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-u</span> root <span class="op">&lt;</span> database/schema.sql</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-u</span> root <span class="op">&lt;</span> database/datos-iniciales.sql</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Compilar</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> clean package</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Ejecutar</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> exec:java</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># o el JAR empaquetado:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-jar</span> target/sigiv-ferreteria.jar</span></code></pre></div>
+<p><strong>Credenciales de prueba:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Contraseña</th>
+<th>Rol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin</code></td>
+<td><code>admin123</code></td>
+<td>ADMIN</td>
+</tr>
+<tr>
+<td><code>vendedor1</code></td>
+<td><code>admin123</code></td>
+<td>VENDEDOR</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trazabilidad-pud">4.4. Trazabilidad PUD</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Disciplina PUD</th>
+<th>Artefacto producido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requisitos</td>
+<td>RF/RNF y CU (AP1) refinados en sección 2</td>
+</tr>
+<tr>
+<td>Análisis</td>
+<td>Modelo de dominio, glosario, CUs detallados</td>
+</tr>
+<tr>
+<td>Diseño</td>
+<td>Diagramas de clases, secuencia, actividades, componentes,
+despliegue</td>
+</tr>
+<tr>
+<td>Implementación</td>
+<td>Código fuente Java + esquema MySQL + scripts de seed</td>
+</tr>
+<tr>
+<td>Pruebas</td>
+<td>Plan de pruebas (sección 5) + <code>SmokeTest.java</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="etapa-de-pruebas">5. Etapa de Pruebas</h1>
+<blockquote>
+<p><strong>Documentación complementaria.</strong> Esta sección presenta
+un resumen ejecutivo del plan y los resultados. El <strong>plan formal
+de pruebas</strong> (objetivos, alcance, criterios de entrada/salida,
+entorno, riesgos y entregables) se encuentra en <a
+href="../pruebas/plan-de-pruebas.md"><code>pruebas/plan-de-pruebas.md</code></a>;
+el <strong>detalle de cada caso</strong> (precondiciones, datos, pasos
+numerados, resultado esperado y obtenido) más la <strong>matriz de
+trazabilidad</strong> completa están en <a
+href="../pruebas/casos-de-prueba.md"><code>pruebas/casos-de-prueba.md</code></a>;
+y los <strong>datos reproducibles</strong> para ejecutar los escenarios
+sobre la BD están en <a
+href="../pruebas/datos-de-prueba.sql"><code>pruebas/datos-de-prueba.sql</code></a>.</p>
+</blockquote>
+<h2 id="enfoque">5.1. Enfoque</h2>
+<p>Se aplican tres niveles de prueba:</p>
+<ol type="1">
+<li><strong>Pruebas unitarias</strong> sobre los servicios
+(validaciones, cálculos).</li>
+<li><strong>Pruebas de integración</strong> sobre el camino completo
+Servicio → DAO → BD, ejecutadas por el <code>SmokeTest</code>.</li>
+<li><strong>Pruebas funcionales / de aceptación</strong> manuales sobre
+la UI Swing.</li>
+</ol>
+<p>El prototipo incluye un <strong>smoke test</strong>
+(<code>com.sigiv.util.SmokeTest</code>) que verifica sin interfaz
+gráfica el camino feliz y los principales caminos alternativos.</p>
+<h2 id="plan-de-casos-de-prueba">5.2. Plan de casos de prueba</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de prueba</th>
+<th>Entrada</th>
+<th>Resultado esperado</th>
+<th>Resultado obtenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP01</td>
+<td>Login con credenciales válidas</td>
+<td>usuario=<code>admin</code>, password=<code>admin123</code></td>
+<td>Sesión iniciada, retorna <code>Usuario</code> con rol ADMIN.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP02</td>
+<td>Login con password inválida</td>
+<td>usuario=<code>admin</code>, password=<code>xxx</code></td>
+<td>Excepción de autenticación, no se inicia sesión.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP03</td>
+<td>Login con usuario inexistente</td>
+<td>usuario=<code>fulano</code>, password=<code>123</code></td>
+<td>Excepción “usuario no encontrado”.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP04</td>
+<td>Listar productos</td>
+<td>—</td>
+<td>Lista no vacía (14 productos del seed).</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP05</td>
+<td>Alta de producto con código duplicado</td>
+<td>codigo existente</td>
+<td>Excepción de unicidad, no se inserta.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP06</td>
+<td>Venta en efectivo simple</td>
+<td>2 productos × cantidades válidas, formaPago=EFECTIVO</td>
+<td>Venta confirmada; stock descontado en ambos productos; total
+correcto.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP07</td>
+<td>Venta a cuenta corriente válida</td>
+<td>cliente con cta. cte. y crédito disponible, formaPago=CTA_CTE</td>
+<td>Venta confirmada; stock descontado; saldo del cliente incrementado;
+movimiento DEBE registrado.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP08</td>
+<td>Venta con stock insuficiente</td>
+<td>cantidad &gt; stock_actual del producto</td>
+<td>Excepción; ninguna fila escrita; rollback aplicado.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP09</td>
+<td>Venta a cta. cte. excediendo crédito</td>
+<td>cliente con saldo+venta &gt; límite_credito</td>
+<td>Rechazo previo a la transacción; no se persiste nada.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP10</td>
+<td>Anulación de venta (admin)</td>
+<td>venta_id existente, estado=CONFIRMADA</td>
+<td>Estado pasa a ANULADA; queda registro en bitácora.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP11</td>
+<td>Caída de BD durante venta</td>
+<td>desconectar MySQL antes de COMMIT</td>
+<td>Rollback; no quedan datos inconsistentes; el usuario ve mensaje de
+error.</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>CP12</td>
+<td>Producto bajo stock mínimo</td>
+<td>stock_actual ≤ stock_mínimo</td>
+<td>Aparece en la consulta de alerta de reposición.</td>
+<td>✅ OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ejecución-del-smoke-test">5.3. Ejecución del smoke test</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> clean compile</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> dependency:build-classpath <span class="at">-Dmdep.outputFile</span><span class="op">=</span>target/cp.txt <span class="at">-q</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-cp</span> <span class="st">&quot;target/classes:src/main/resources:</span><span class="va">$(</span><span class="fu">cat</span> target/cp.txt<span class="va">)</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     com.sigiv.util.SmokeTest</span></code></pre></div>
+<p>El test cubre los casos CP01, CP02, CP04, CP06, CP07 y CP08 de forma
+automatizada.</p>
+<h2 id="cobertura-de-requisitos-por-casos-de-prueba">5.4. Cobertura de
+requisitos por casos de prueba</h2>
+<table>
+<thead>
+<tr>
+<th>RF</th>
+<th>Casos que lo verifican</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF01 (ABM productos)</td>
+<td>CP04, CP05</td>
+</tr>
+<tr>
+<td>RF02 (Registrar venta)</td>
+<td>CP06, CP07, CP08, CP11</td>
+</tr>
+<tr>
+<td>RF03 (Venta a crédito)</td>
+<td>CP07, CP09</td>
+</tr>
+<tr>
+<td>RF07 (Alerta stock mínimo)</td>
+<td>CP12</td>
+</tr>
+<tr>
+<td>RF09 (Roles)</td>
+<td>CP01, CP10</td>
+</tr>
+<tr>
+<td>RNF03 (Seguridad contraseñas)</td>
+<td>CP01, CP02, CP03 (passwords BCrypt)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="definición-de-base-de-datos">6. Definición de Base de Datos</h1>
+<h2 id="motor-y-configuración">6.1. Motor y configuración</h2>
+<ul>
+<li><strong>Motor:</strong> MySQL 8.x (probado en 8.0 y 9.0).</li>
+<li><strong>Base:</strong> <code>sigiv_ferreteria</code>.</li>
+<li><strong>Charset / collation:</strong> <code>utf8mb4</code> /
+<code>utf8mb4_unicode_ci</code> (soporte completo Unicode, incluyendo
+emojis y caracteres especiales).</li>
+<li><strong>Storage engine:</strong> InnoDB (por defecto en MySQL 8) —
+necesario para FK, transacciones ACID y row-level locking.</li>
+<li><strong>Usuario de aplicación:</strong>
+<code>sigiv_app@localhost</code> con permisos CRUD limitados (no es
+<code>root</code>).</li>
+</ul>
+<h2 id="entidades">6.2. Entidades</h2>
+<p>El esquema cuenta con <strong>13 tablas</strong> agrupadas en cinco
+subdominios:</p>
+<table>
+<thead>
+<tr>
+<th>Subdominio</th>
+<th>Tablas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seguridad</td>
+<td><code>roles</code>, <code>usuarios</code></td>
+</tr>
+<tr>
+<td>Catálogo / Inventario</td>
+<td><code>rubros</code>, <code>proveedores</code>,
+<code>productos</code></td>
+</tr>
+<tr>
+<td>Clientes y cuentas corrientes</td>
+<td><code>clientes</code>, <code>movimientos_cta_cte</code></td>
+</tr>
+<tr>
+<td>Ventas</td>
+<td><code>ventas</code>, <code>detalle_ventas</code></td>
+</tr>
+<tr>
+<td>Compras</td>
+<td><code>compras</code>, <code>detalle_compras</code></td>
+</tr>
+<tr>
+<td>Auditoría</td>
+<td><code>bitacora</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="diagrama-entidad-relación">6.3. Diagrama Entidad-Relación</h2>
+<figure>
+<img src="diagramas/der-sigiv.png" alt="Diagrama Entidad-Relación" />
+<figcaption aria-hidden="true">Diagrama Entidad-Relación</figcaption>
+</figure>
+<p><em>Figura 6 — Diagrama Entidad-Relación del sistema (notación crow’s
+foot).</em></p>
+<p><strong>Cardinalidades principales:</strong></p>
+<ul>
+<li>Un <strong>rol</strong> tiene N <strong>usuarios</strong>; un
+usuario tiene exactamente 1 rol.</li>
+<li>Un <strong>rubro</strong> agrupa N <strong>productos</strong>; un
+producto pertenece a 1 rubro.</li>
+<li>Un <strong>proveedor</strong> abastece 0..N
+<strong>productos</strong>; un producto tiene 0..1 proveedor
+habitual.</li>
+<li>Un <strong>cliente</strong> registra 0..N <strong>movimientos de
+cta. cte.</strong> y 0..N <strong>ventas</strong>.</li>
+<li>Una <strong>venta</strong> está compuesta por 1..N <strong>líneas de
+detalle</strong> (composición fuerte,
+<code>ON DELETE CASCADE</code>).</li>
+<li>Una <strong>compra</strong> está compuesta por 1..N <strong>líneas
+de detalle</strong> (composición fuerte).</li>
+<li>Un <strong>usuario</strong> firma 0..N <strong>ventas</strong> y
+0..N <strong>compras</strong>.</li>
+</ul>
+<h2 id="normalización">6.4. Normalización</h2>
+<p>El modelo cumple con las tres primeras formas normales (3FN):</p>
+<ul>
+<li><strong>1FN (atomicidad):</strong> todos los atributos son
+escalares; no hay listas ni grupos repetidos en una columna. Los
+detalles de venta y compra se separan en tablas hijas.</li>
+<li><strong>2FN (dependencia funcional total de la PK):</strong> las
+tablas hijas (<code>detalle_ventas</code>, <code>detalle_compras</code>,
+<code>movimientos_cta_cte</code>) tienen PK simple <code>id</code> y
+todos sus atributos no clave dependen de ella; la FK al padre no se
+“duplica” en datos.</li>
+<li><strong>3FN (sin dependencias transitivas):</strong> atributos
+derivables (margen de un rubro, total de una venta) se almacenan
+denormalizados intencionalmente cuando es histórico (precio_unitario,
+subtotal en detalle, total en cabecera) para preservar el valor <em>en
+el momento de la venta</em> independientemente de cambios futuros de
+precio del producto. Esta es una decisión consciente, no una violación
+de 3FN.</li>
+</ul>
+<h2 id="integridad-referencial-e-índices">6.5. Integridad referencial e
+índices</h2>
+<ul>
+<li><strong>Claves foráneas</strong> explícitas en todas las relaciones;
+<code>ON DELETE CASCADE</code> solo en los detalles (venta →
+detalle_ventas; compra → detalle_compras), en el resto se preserva el
+histórico.</li>
+<li><strong>Unique constraints:</strong>
+<code>usuarios.nombre_usuario</code>, <code>productos.codigo</code>,
+<code>clientes.documento</code>, <code>proveedores.cuit</code>,
+<code>rubros.nombre</code>.</li>
+<li><strong>Check constraints:</strong> precios y stock no negativos;
+cantidades positivas en detalles.</li>
+<li><strong>Índices:</strong> primary key en todas las tablas
+(clustered), índice secundario <code>idx_prod_descripcion</code> para
+búsquedas por texto, índice agregado <code>idx_ventas_fecha</code>
+(sugerido en el TP2) para acelerar reportes por rango de fechas.</li>
+</ul>
+<h2 id="estrategia-de-baja">6.6. Estrategia de baja</h2>
+<ul>
+<li>Los catálogos (productos, clientes, proveedores, usuarios) usan
+<strong>baja lógica</strong> (<code>activo = FALSE</code>) para
+preservar trazabilidad histórica.</li>
+<li>Las ventas se <strong>anulan</strong>
+(<code>estado = 'ANULADA'</code>), no se borran.</li>
+<li>Solo la <strong>bitácora</strong> se purga periódicamente (retención
+1 año) por volumen.</li>
+</ul>
+<hr />
+<h1 id="consultas-sql">7. Consultas SQL</h1>
+<p>A continuación se presentan las consultas más representativas del
+sistema, agrupadas por tipo. El archivo completo está disponible en
+<code>database/consultas-tp2.sql</code> del repositorio.</p>
+<h2 id="creación-de-tablas-ddl">7.1. Creación de tablas (DDL)</h2>
+<p>El script <code>database/schema.sql</code> del repositorio crea las
+13 tablas, el usuario de aplicación y otorga los permisos. Ejemplo del
+DDL de la tabla central <code>productos</code>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> productos (</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>            <span class="dt">INT</span> AUTO_INCREMENT <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    codigo        <span class="dt">VARCHAR</span>(<span class="dv">30</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">UNIQUE</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    descripcion   <span class="dt">VARCHAR</span>(<span class="dv">150</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    rubro_id      <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    proveedor_id  <span class="dt">INT</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    precio_costo  <span class="dt">DECIMAL</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">CHECK</span> (precio_costo <span class="op">&gt;=</span> <span class="dv">0</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    precio_venta  <span class="dt">DECIMAL</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">CHECK</span> (precio_venta <span class="op">&gt;=</span> <span class="dv">0</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    stock_actual  <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">0</span> <span class="kw">CHECK</span> (stock_actual <span class="op">&gt;=</span> <span class="dv">0</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    stock_minimo  <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">0</span> <span class="kw">CHECK</span> (stock_minimo <span class="op">&gt;=</span> <span class="dv">0</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    activo        <span class="dt">BOOLEAN</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="kw">TRUE</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    fecha_alta    DATETIME <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_prod_rubro <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (rubro_id)    <span class="kw">REFERENCES</span> rubros(<span class="kw">id</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_prod_prov  <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (proveedor_id) <span class="kw">REFERENCES</span> proveedores(<span class="kw">id</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_prod_descripcion <span class="kw">ON</span> productos(descripcion);</span></code></pre></div>
+<h2 id="inserción-de-registros-insert">7.2. Inserción de registros
+(INSERT)</h2>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Alta de producto</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> productos (codigo, descripcion, rubro_id, proveedor_id,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                       precio_costo, precio_venta, stock_actual, stock_minimo)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">&#39;TOR-001&#39;</span>, <span class="st">&#39;Tornillo autoperforante 6x1&quot;&#39;</span>, <span class="dv">4</span>, <span class="dv">1</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="fl">12.50</span>, <span class="fl">22.00</span>, <span class="dv">500</span>, <span class="dv">50</span>);</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Alta de cliente con cuenta corriente</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> clientes (nombre, documento, telefono, tiene_cta_cte, limite_credito)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">&#39;Juan Albañil&#39;</span>, <span class="st">&#39;20-30111222-3&#39;</span>, <span class="st">&#39;3514567890&#39;</span>, <span class="kw">TRUE</span>, <span class="fl">50000.00</span>);</span></code></pre></div>
+<h2 id="consultas-select-representativas">7.3. Consultas (SELECT)
+representativas</h2>
+<h3 id="listado-de-productos-con-rubro-y-proveedor-join">7.3.1. Listado
+de productos con rubro y proveedor (JOIN)</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> p.codigo, p.descripcion, r.nombre <span class="kw">AS</span> rubro,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">COALESCE</span>(pr.razon_social, <span class="st">&#39;-&#39;</span>) <span class="kw">AS</span> proveedor,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       p.precio_venta, p.stock_actual</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> productos p</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> rubros r            <span class="kw">ON</span> r.<span class="kw">id</span> <span class="op">=</span> p.rubro_id</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">LEFT</span> <span class="kw">JOIN</span> proveedores pr <span class="kw">ON</span> pr.<span class="kw">id</span> <span class="op">=</span> p.proveedor_id</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> p.activo <span class="op">=</span> <span class="kw">TRUE</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> r.nombre, p.descripcion;</span></code></pre></div>
+<p>Combina tres tablas con <code>JOIN</code> y <code>LEFT JOIN</code>
+(productos sin proveedor habitual también aparecen).</p>
+<h3 id="productos-bajo-stock-mínimo-alerta-rf07">7.3.2. Productos bajo
+stock mínimo (alerta RF07)</h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> p.codigo, p.descripcion, p.stock_actual, p.stock_minimo,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       (p.stock_minimo <span class="op">-</span> p.stock_actual) <span class="kw">AS</span> faltante</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> productos p</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> p.activo <span class="op">=</span> <span class="kw">TRUE</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> p.stock_actual <span class="op">&lt;=</span> p.stock_minimo</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> faltante <span class="kw">DESC</span>;</span></code></pre></div>
+<p>Implementa el requerimiento funcional RF07 (alertas de
+reposición).</p>
+<h3 id="facturación-diaria-en-un-rango-group-by-agregados">7.3.3.
+Facturación diaria en un rango (GROUP BY + agregados)</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">DATE</span>(v.fecha) <span class="kw">AS</span> dia,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">COUNT</span>(<span class="op">*</span>)      <span class="kw">AS</span> cantidad_ventas,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(v.total)  <span class="kw">AS</span> facturacion_dia,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">AVG</span>(v.total)  <span class="kw">AS</span> ticket_promedio</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> ventas v</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> v.estado <span class="op">=</span> <span class="st">&#39;CONFIRMADA&#39;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> v.fecha <span class="kw">BETWEEN</span> <span class="st">&#39;2026-05-01&#39;</span> <span class="kw">AND</span> <span class="st">&#39;2026-05-31&#39;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a> <span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">DATE</span>(v.fecha)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> dia;</span></code></pre></div>
+<p>Soporta el reporte de “ventas por período” (RF08).</p>
+<h3 id="top-10-productos-más-vendidos-mes-actual">7.3.4. Top 10
+productos más vendidos (mes actual)</h3>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> p.codigo, p.descripcion,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(dv.cantidad) <span class="kw">AS</span> unidades,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(dv.subtotal) <span class="kw">AS</span> facturado</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> detalle_ventas dv</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> ventas v    <span class="kw">ON</span> v.<span class="kw">id</span> <span class="op">=</span> dv.venta_id</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> productos p <span class="kw">ON</span> p.<span class="kw">id</span> <span class="op">=</span> dv.producto_id</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> v.estado <span class="op">=</span> <span class="st">&#39;CONFIRMADA&#39;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> v.fecha <span class="op">&gt;=</span> DATE_FORMAT(CURDATE(), <span class="st">&#39;%Y-%m-01&#39;</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a> <span class="kw">GROUP</span> <span class="kw">BY</span> p.<span class="kw">id</span>, p.codigo, p.descripcion</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> unidades <span class="kw">DESC</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a> <span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div>
+<h3 id="clientes-deudores-con-crédito-disponible">7.3.5. Clientes
+deudores con crédito disponible</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> c.<span class="kw">id</span>, c.nombre, c.documento, c.limite_credito, c.saldo_cta_cte,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       (c.limite_credito <span class="op">-</span> c.saldo_cta_cte) <span class="kw">AS</span> credito_disponible</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> clientes c</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> c.tiene_cta_cte <span class="op">=</span> <span class="kw">TRUE</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> c.saldo_cta_cte <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> c.saldo_cta_cte <span class="kw">DESC</span>;</span></code></pre></div>
+<h3 id="stock-valorizado-por-rubro">7.3.6. Stock valorizado por
+rubro</h3>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> r.nombre <span class="kw">AS</span> rubro,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">COUNT</span>(p.<span class="kw">id</span>)                          <span class="kw">AS</span> productos,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(p.stock_actual)                  <span class="kw">AS</span> unidades_total,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(p.stock_actual <span class="op">*</span> p.precio_costo) <span class="kw">AS</span> valor_costo,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(p.stock_actual <span class="op">*</span> p.precio_venta) <span class="kw">AS</span> valor_venta</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> productos p</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> rubros r <span class="kw">ON</span> r.<span class="kw">id</span> <span class="op">=</span> p.rubro_id</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> p.activo <span class="op">=</span> <span class="kw">TRUE</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a> <span class="kw">GROUP</span> <span class="kw">BY</span> r.nombre</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> valor_costo <span class="kw">DESC</span>;</span></code></pre></div>
+<h2 id="actualizaciones-update">7.4. Actualizaciones (UPDATE)</h2>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Ajuste de precios del rubro &quot;Pinturas&quot; (+10%)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> productos</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SET</span> precio_venta <span class="op">=</span> <span class="fu">ROUND</span>(precio_venta <span class="op">*</span> <span class="fl">1.10</span>, <span class="dv">2</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> rubro_id <span class="op">=</span> (<span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> rubros <span class="kw">WHERE</span> nombre <span class="op">=</span> <span class="st">&#39;Pinturas&#39;</span>);</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- Pago parcial de cta. cte. (transaccional)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">START</span> <span class="kw">TRANSACTION</span>;</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> clientes</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SET</span> saldo_cta_cte <span class="op">=</span> saldo_cta_cte <span class="op">-</span> <span class="fl">2000.00</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> movimientos_cta_cte (cliente_id, tipo, monto, descripcion)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">&#39;HABER&#39;</span>, <span class="fl">2000.00</span>, <span class="st">&#39;Pago parcial en efectivo&#39;</span>);</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="kw">COMMIT</span>;</span></code></pre></div>
+<h2 id="borrado-y-bajas-lógicas">7.5. Borrado y bajas lógicas</h2>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Baja LÓGICA de producto (preserva historia)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> productos <span class="kw">SET</span> activo <span class="op">=</span> <span class="kw">FALSE</span> <span class="kw">WHERE</span> codigo <span class="op">=</span> <span class="st">&#39;TOR-001&#39;</span>;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Anular venta (no se borra)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> ventas <span class="kw">SET</span> estado <span class="op">=</span> <span class="st">&#39;ANULADA&#39;</span> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">25</span>;</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Borrado físico controlado de bitácora antigua (retención 1 año)</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> bitacora <span class="kw">WHERE</span> fecha <span class="op">&lt;</span> DATE_SUB(CURDATE(), <span class="dt">INTERVAL</span> <span class="dv">1</span> <span class="dt">YEAR</span>);</span></code></pre></div>
+<hr />
+<h1 id="definiciones-de-comunicación">8. Definiciones de
+Comunicación</h1>
+<h2 id="arquitectura-de-red">8.1. Arquitectura de red</h2>
+<p>El sistema opera sobre una <strong>red LAN privada</strong> del local
+comercial, con dos PCs en mostrador y una tercera (PC de oficina del
+dueño) que cumple el rol de <strong>servidor de base de
+datos</strong>.</p>
+<figure>
+<img src="diagramas/despliegue-sigiv.png"
+alt="Diagrama de despliegue" />
+<figcaption aria-hidden="true">Diagrama de despliegue</figcaption>
+</figure>
+<p><em>Figura 7 — Diagrama de despliegue: nodos físicos, software
+desplegado y enlaces.</em></p>
+<h2 id="pila-de-protocolos">8.2. Pila de protocolos</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Capa OSI</th>
+<th>Protocolo / estándar</th>
+<th>Aplicación en SIGIV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aplicación</strong></td>
+<td>JDBC (sobre el protocolo de MySQL Client/Server)</td>
+<td>El cliente Java envía sentencias SQL y recibe <code>ResultSet</code>
+vía MySQL Connector/J 8.3.</td>
+</tr>
+<tr>
+<td><strong>Presentación</strong></td>
+<td>Codificación UTF-8 (mb4)</td>
+<td>Garantiza soporte de caracteres especiales en descripciones de
+productos y datos de clientes.</td>
+</tr>
+<tr>
+<td><strong>Sesión</strong></td>
+<td>Pool de conexiones JDBC</td>
+<td>Reutilización de sockets ya autenticados.</td>
+</tr>
+<tr>
+<td><strong>Transporte</strong></td>
+<td>TCP puerto 3306</td>
+<td>Garantiza entrega ordenada y confiable. La conexión es punto a punto
+entre cliente y servidor de BD.</td>
+</tr>
+<tr>
+<td><strong>Red</strong></td>
+<td>IPv4 / direccionamiento privado 192.168.1.0/24</td>
+<td>Asignación por DHCP del router.</td>
+</tr>
+<tr>
+<td><strong>Enlace</strong></td>
+<td>Ethernet (PCs cableadas en mostrador) y Wi-Fi WPA2 (eventual
+notebook del dueño)</td>
+<td>Switch del router como concentrador.</td>
+</tr>
+<tr>
+<td><strong>Física</strong></td>
+<td>Cable UTP cat. 6, antenas 2.4/5 GHz</td>
+<td>Infraestructura existente del local.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="infraestructura-física">8.3. Infraestructura física</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Equipo</th>
+<th>Función</th>
+<th>Especificaciones mínimas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 × PC mostrador</td>
+<td>Cliente Java (UI Swing)</td>
+<td>Windows 11, 4 GB RAM, JRE 21, conexión Ethernet.</td>
+</tr>
+<tr>
+<td>1 × PC oficina (rol servidor)</td>
+<td>Servidor MySQL + cliente Java + backups</td>
+<td>Ubuntu Server 22.04 LTS, 8 GB RAM, SSD 256 GB, conexión
+Ethernet.</td>
+</tr>
+<tr>
+<td>1 × Router/switch</td>
+<td>Red LAN local</td>
+<td>Wi-Fi 802.11ac dual band, 4 puertos Gigabit Ethernet.</td>
+</tr>
+<tr>
+<td>UPS</td>
+<td>Continuidad eléctrica del servidor</td>
+<td>700 VA, autonomía 15 min mínimo.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="seguridad-de-la-comunicación">8.4. Seguridad de la
+comunicación</h2>
+<ul>
+<li><strong>Usuario de BD dedicado:</strong> la aplicación se conecta
+como <code>sigiv_app@localhost</code> (o <code>@192.168.1.%</code> para
+clientes remotos), nunca como <code>root</code>. Permisos limitados a
+<code>SELECT, INSERT, UPDATE, DELETE</code> sobre
+<code>sigiv_ferreteria.*</code>. No tiene permisos de DDL ni
+administración.</li>
+<li><strong>Autenticación de usuarios:</strong> contraseñas almacenadas
+como hash <strong>BCrypt con salt</strong> (RNF03). El plano nunca se
+guarda.</li>
+<li><strong>Aislamiento de red:</strong> el puerto 3306 está abierto
+únicamente para la red local (firewall del servidor lo bloquea desde
+Internet).</li>
+<li><strong>Backups automáticos:</strong> <code>mysqldump</code> diario
+vía <code>cron</code>, con retención de 30 días en disco local y volcado
+semanal a unidad externa (RNF05).</li>
+<li><strong>Roadmap de seguridad</strong> (fuera del alcance del
+prototipo):
+<ul>
+<li>Habilitar TLS en la conexión JDBC
+(<code>useSSL=true&amp;requireSSL=true</code>).</li>
+<li>VPN para acceso remoto del dueño (en lugar de exponer 3306).</li>
+<li>Rotación periódica de credenciales y políticas de password.</li>
+</ul></li>
+</ul>
+<h2 id="control-de-errores-y-reintento">8.5. Control de errores y
+reintento</h2>
+<ul>
+<li><strong>Errores transitorios de red</strong> (timeout JDBC, host
+unreachable): la UI muestra un cartel “Sin conexión con la base” y
+bloquea operaciones de escritura hasta restablecer.</li>
+<li><strong>Errores transaccionales</strong> (deadlock, constraint
+violation): se hace <code>rollback</code> y se informa al usuario; no
+hay reintento automático en la versión actual del prototipo.</li>
+<li><strong>Bitácora local de fallback</strong> (mejora propuesta):
+registrar localmente las operaciones fallidas para auditoría
+posterior.</li>
+</ul>
+<hr />
+<h1 id="conclusiones">9. Conclusiones</h1>
+<p>El presente trabajo consolida la entrega anterior aplicando de forma
+completa los modelos del <strong>Proceso Unificado de
+Desarrollo</strong>:</p>
+<ul>
+<li><strong>Análisis</strong> — modelo de dominio, casos de uso
+refinados, glosario.</li>
+<li><strong>Diseño</strong> — arquitectura en 3 capas, diagrama de
+clases, secuencia, actividades, componentes y despliegue, con aplicación
+explícita de los patrones MVC, DAO, Singleton y Transaction Script.</li>
+<li><strong>Implementación</strong> — prototipo Java + MySQL funcional,
+transaccional, con separación clara de capas.</li>
+<li><strong>Pruebas</strong> — plan de pruebas con 12 casos cubriendo
+los principales requisitos funcionales y no funcionales, automatizados
+parcialmente con un smoke test.</li>
+<li><strong>Base de datos</strong> — modelo relacional normalizado en
+3FN, con integridad referencial, restricciones de dominio, índices y
+estrategia explícita de baja lógica.</li>
+<li><strong>Comunicación</strong> — definición completa de la pila de
+protocolos, infraestructura física y consideraciones de seguridad.</li>
+</ul>
+<p>El prototipo operacional entregado demuestra la <strong>viabilidad
+técnica</strong> de la propuesta y deja la base lista para las
+siguientes iteraciones del PUD (Construcción incremental de los módulos
+de compras y reportes, Transición con capacitación del usuario y puesta
+en producción).</p>
+<hr />
+<h1 id="referencias">Referencias</h1>
+<ul>
+<li>Kendall, K., &amp; Kendall, J. (2011). <em>Análisis y diseño de
+sistemas</em> (8a ed.). Pearson Education.</li>
+<li>Jacobson, I., Booch, G., &amp; Rumbaugh, J. (2000). <em>El Proceso
+Unificado de Desarrollo de Software</em>. Addison-Wesley.</li>
+<li>Sommerville, I. (2011). <em>Ingeniería del software</em> (9a ed.).
+Pearson Education.</li>
+<li>Larman, C. (2004). <em>UML y patrones: una introducción al análisis
+y diseño orientado a objetos y al proceso unificado</em> (2a ed.).
+Pearson Education.</li>
+<li>Date, C. J. (2003). <em>An Introduction to Database Systems</em>
+(8th ed.). Addison-Wesley.</li>
+<li>Oracle Corporation. (2024). <em>MySQL 8.0 Reference Manual</em>.
+https://dev.mysql.com/doc/</li>
+<li>Oracle Corporation. (2024). <em>MySQL Connector/J Developer
+Guide</em>. https://dev.mysql.com/doc/connector-j/</li>
+</ul>
+</body>
+</html>

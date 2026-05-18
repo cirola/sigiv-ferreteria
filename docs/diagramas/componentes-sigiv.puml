@@ -1,0 +1,56 @@
+@startuml componentes-sigiv
+title Diagrama de componentes - SIGIV-SM
+
+skinparam componentStyle uml2
+
+package "Aplicacion Cliente Java" {
+  [VentanaLogin] as login
+  [VentanaPrincipal] as main
+  [PanelProductos] as pProd
+  [PanelVenta] as pVenta
+
+  package "Servicios" {
+    [ServicioAuth]
+    [ServicioProducto]
+    [ServicioVenta]
+  }
+
+  package "Persistencia (DAO)" {
+    [UsuarioDAO]
+    [ProductoDAO]
+    [ClienteDAO]
+    [VentaDAO]
+  }
+
+  [ConexionBD]
+  [MySQL Connector/J 8.3] as driver
+  [jBCrypt] as bcrypt
+}
+
+cloud "LAN local" {
+}
+
+node "Servidor BD" {
+  database "MySQL 8.x\nsigiv_ferreteria" as MY
+}
+
+login --> [ServicioAuth]
+pProd --> [ServicioProducto]
+pVenta --> [ServicioVenta]
+
+[ServicioAuth] --> [UsuarioDAO]
+[ServicioAuth] ..> bcrypt
+[ServicioProducto] --> [ProductoDAO]
+[ServicioVenta] --> [VentaDAO]
+[ServicioVenta] --> [ProductoDAO]
+[ServicioVenta] --> [ClienteDAO]
+
+[UsuarioDAO] --> [ConexionBD]
+[ProductoDAO] --> [ConexionBD]
+[ClienteDAO] --> [ConexionBD]
+[VentaDAO] --> [ConexionBD]
+
+[ConexionBD] --> driver
+driver --> MY : JDBC / TCP 3306
+
+@enduml

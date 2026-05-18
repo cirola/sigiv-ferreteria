@@ -1,0 +1,183 @@
+@startuml clases-sigiv
+title Diagrama de clases - SIGIV-SM (capas Modelo / Servicio / DAO)
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+skinparam packageStyle rectangle
+
+package "modelo" {
+    class Usuario {
+        - id : int
+        - nombreUsuario : String
+        - nombreCompleto : String
+        - passwordHash : String
+        - rol : Rol
+        - activo : boolean
+        + getId() : int
+        + getRol() : Rol
+    }
+
+    class Rol {
+        - id : int
+        - nombre : String
+        - descripcion : String
+    }
+
+    class Producto {
+        - id : int
+        - codigo : String
+        - descripcion : String
+        - precioCosto : BigDecimal
+        - precioVenta : BigDecimal
+        - stockActual : int
+        - stockMinimo : int
+        - rubro : Rubro
+        - proveedor : Proveedor
+        + tieneStock(cant : int) : boolean
+        + bajoMinimo() : boolean
+    }
+
+    class Rubro {
+        - id : int
+        - nombre : String
+        - margenDefault : BigDecimal
+    }
+
+    class Cliente {
+        - id : int
+        - nombre : String
+        - documento : String
+        - tieneCtaCte : boolean
+        - limiteCredito : BigDecimal
+        - saldoCtaCte : BigDecimal
+        + creditoDisponible() : BigDecimal
+    }
+
+    class Proveedor {
+        - id : int
+        - razonSocial : String
+        - cuit : String
+    }
+
+    class Venta {
+        - id : int
+        - fecha : LocalDateTime
+        - usuario : Usuario
+        - cliente : Cliente
+        - formaPago : FormaPago
+        - total : BigDecimal
+        - estado : EstadoVenta
+        - detalles : List<DetalleVenta>
+        + agregarDetalle(d : DetalleVenta) : void
+        + calcularTotal() : BigDecimal
+    }
+
+    class DetalleVenta {
+        - producto : Producto
+        - cantidad : int
+        - precioUnitario : BigDecimal
+        - subtotal : BigDecimal
+    }
+
+    enum FormaPago {
+        EFECTIVO
+        TRANSFERENCIA
+        CTA_CTE
+    }
+
+    enum EstadoVenta {
+        CONFIRMADA
+        ANULADA
+    }
+}
+
+package "dao" {
+    class UsuarioDAO {
+        + buscarPorNombre(u : String) : Usuario
+        + listarActivos() : List<Usuario>
+    }
+
+    class ProductoDAO {
+        + buscarPorCodigo(c : String) : Producto
+        + listar() : List<Producto>
+        + insertar(p : Producto) : int
+        + actualizar(p : Producto) : void
+        + descontarStock(id : int, cant : int, conn : Connection) : void
+    }
+
+    class ClienteDAO {
+        + listar() : List<Cliente>
+        + actualizarSaldo(id : int, monto : BigDecimal, conn : Connection) : void
+    }
+
+    class VentaDAO {
+        + insertar(v : Venta, conn : Connection) : int
+        + insertarDetalle(d : DetalleVenta, conn : Connection) : void
+    }
+
+    class RubroDAO {
+        + listar() : List<Rubro>
+    }
+}
+
+package "servicio" {
+    class ServicioAuth {
+        + login(u : String, pwd : String) : Usuario
+    }
+
+    class ServicioProducto {
+        - dao : ProductoDAO
+        + listar() : List<Producto>
+        + crear(p : Producto) : void
+        + actualizar(p : Producto) : void
+    }
+
+    class ServicioVenta {
+        - ventaDAO : VentaDAO
+        - prodDAO : ProductoDAO
+        - cliDAO : ClienteDAO
+        + registrarVenta(v : Venta) : int
+    }
+}
+
+package "util" {
+    class ConexionBD <<Singleton>> {
+        - {static} INSTANCE : ConexionBD
+        + getConnection() : Connection
+    }
+}
+
+package "vista" {
+    class VentanaLogin
+    class VentanaPrincipal
+    class PanelProductos
+    class PanelVenta
+}
+
+ServicioAuth ..> UsuarioDAO
+ServicioProducto ..> ProductoDAO
+ServicioVenta ..> VentaDAO
+ServicioVenta ..> ProductoDAO
+ServicioVenta ..> ClienteDAO
+
+UsuarioDAO ..> ConexionBD
+ProductoDAO ..> ConexionBD
+ClienteDAO ..> ConexionBD
+VentaDAO ..> ConexionBD
+RubroDAO ..> ConexionBD
+
+Usuario "1" --> "1" Rol
+Producto "*" --> "1" Rubro
+Producto "*" --> "0..1" Proveedor
+Venta "*" --> "1" Usuario
+Venta "*" --> "0..1" Cliente
+Venta "1" *-- "1..*" DetalleVenta
+DetalleVenta "*" --> "1" Producto
+Venta --> FormaPago
+Venta --> EstadoVenta
+
+VentanaLogin ..> ServicioAuth
+PanelProductos ..> ServicioProducto
+PanelVenta ..> ServicioVenta
+
+@enduml

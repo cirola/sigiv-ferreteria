@@ -1,15 +1,15 @@
 
 # Universidad Empresarial Siglo 21
 
-##  Licenciatura en Informatíca
+##  Licenciatura en Informática
 
 &nbsp;
 
 &nbsp;
 
-# Actividad Práctica 1
+# Actividad Práctica 2
 
-## Análisis y Definición de un Proyecto Informático
+## Diseño, Implementación y Pruebas de un Proyecto Informático
 
 &nbsp;
 
@@ -30,10 +30,9 @@
 
 **Año académico:** 2026
 
-**Fecha de entrega:** Abril de 2026
+**Fecha de entrega:** Mayo de 2026
 
 &nbsp;
 
 **Repositorio GitHub:** https://github.com/cirola/sigiv-ferreteria
-
 

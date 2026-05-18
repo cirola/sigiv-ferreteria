@@ -1,0 +1,49 @@
+@startuml despliegue-sigiv
+title Diagrama de despliegue - SIGIV-SM en LAN del local
+
+skinparam nodeFontStyle bold
+
+node "PC Mostrador 1\n(Windows 11)" as PC1 {
+  artifact "sigiv-ferreteria.jar" as jar1
+  artifact "JRE 21" as jre1
+}
+
+node "PC Mostrador 2\n(Windows 11)" as PC2 {
+  artifact "sigiv-ferreteria.jar" as jar2
+  artifact "JRE 21" as jre2
+}
+
+node "Servidor / PC Oficina\n(Ubuntu 22.04 LTS)" as SRV {
+  artifact "sigiv-ferreteria.jar" as jar3
+  artifact "JRE 21" as jre3
+  database "MySQL 8.x\nsigiv_ferreteria" as DB
+  artifact "Backup diario\n(mysqldump cron)" as backup
+}
+
+node "Router / Switch LAN\n192.168.1.0/24" as RTR
+
+PC1 -down-> RTR : Ethernet
+PC2 -down-> RTR : Ethernet
+SRV -down-> RTR : Ethernet
+
+jar1 ..> DB : JDBC / TCP 3306\n(usuario sigiv_app)
+jar2 ..> DB : JDBC / TCP 3306\n(usuario sigiv_app)
+jar3 ..> DB : JDBC localhost
+
+note right of SRV
+  Servidor centralizado:
+  - MySQL escucha en :3306
+  - Usuario aplicacion sigiv_app
+    con permisos CRUD (sin DDL)
+  - Backups automaticos diarios
+  - Pisos de retencion: 30 dias
+end note
+
+note left of RTR
+  Red LAN privada:
+  - DHCP del router
+  - SSID WPA2 para wifi del local
+  - Cliente externo NO accede a 3306
+end note
+
+@enduml

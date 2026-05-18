@@ -1,0 +1,60 @@
+@startuml secuencia-registrar-venta
+title Diagrama de secuencia - CU04 Registrar venta (forma de pago Cta. Cte.)
+
+actor Vendedor as V
+participant ":PanelVenta" as UI
+participant ":ServicioVenta" as SRV
+participant ":ProductoDAO" as PD
+participant ":VentaDAO" as VD
+participant ":ClienteDAO" as CD
+participant ":ConexionBD" as DB
+database "MySQL" as MY
+
+V -> UI : agregarProducto(codigo, cantidad)
+UI -> SRV : buscarProducto(codigo)
+SRV -> PD : buscarPorCodigo(codigo)
+PD -> MY : SELECT * FROM productos WHERE codigo=?
+MY --> PD : Producto
+PD --> SRV : Producto
+SRV --> UI : Producto
+UI -> UI : validarStock(prod, cantidad)
+
+V -> UI : seleccionarCliente(idCliente)
+V -> UI : confirmarVenta(formaPago=CTA_CTE)
+
+UI -> SRV : registrarVenta(venta)
+activate SRV
+SRV -> DB : getConnection()
+DB --> SRV : conn
+SRV -> SRV : conn.setAutoCommit(false)
+
+SRV -> VD : insertar(venta, conn)
+VD -> MY : INSERT INTO ventas(...)
+MY --> VD : ventaId
+VD --> SRV : ventaId
+
+loop por cada DetalleVenta
+    SRV -> VD : insertarDetalle(det, conn)
+    VD -> MY : INSERT INTO detalle_ventas(...)
+    SRV -> PD : descontarStock(prodId, cant, conn)
+    PD -> MY : UPDATE productos SET stock_actual = stock_actual - ?
+end
+
+alt formaPago == CTA_CTE
+    SRV -> CD : actualizarSaldo(cliId, total, conn)
+    CD -> MY : UPDATE clientes SET saldo_cta_cte = saldo_cta_cte + ?
+    CD -> MY : INSERT INTO movimientos_cta_cte(tipo='DEBE', monto, venta_id)
+end
+
+alt todo OK
+    SRV -> SRV : conn.commit()
+    SRV --> UI : ventaId
+    UI --> V : "Venta registrada N° ventaId"
+else error
+    SRV -> SRV : conn.rollback()
+    SRV --> UI : excepcion
+    UI --> V : "Error: operacion cancelada"
+end
+deactivate SRV
+
+@enduml

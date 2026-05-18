@@ -1,0 +1,150 @@
+@startuml der-sigiv
+title Diagrama Entidad-Relacion - sigiv_ferreteria (notacion crow's foot)
+
+!define table(x) entity x
+hide circle
+skinparam linetype ortho
+
+entity roles {
+  * id : INT <<PK>>
+  --
+  * nombre : VARCHAR(30) <<UQ>>
+  descripcion : VARCHAR(120)
+}
+
+entity usuarios {
+  * id : INT <<PK>>
+  --
+  * nombre_usuario : VARCHAR(30) <<UQ>>
+  * nombre_completo : VARCHAR(100)
+  * password_hash : VARCHAR(100)
+  * rol_id : INT <<FK>>
+  activo : BOOLEAN
+  fecha_alta : DATETIME
+}
+
+entity rubros {
+  * id : INT <<PK>>
+  --
+  * nombre : VARCHAR(60) <<UQ>>
+  margen_default : DECIMAL(5,2)
+}
+
+entity proveedores {
+  * id : INT <<PK>>
+  --
+  * razon_social : VARCHAR(120)
+  cuit : VARCHAR(13) <<UQ>>
+  telefono : VARCHAR(30)
+  email : VARCHAR(80)
+  direccion : VARCHAR(150)
+  activo : BOOLEAN
+}
+
+entity productos {
+  * id : INT <<PK>>
+  --
+  * codigo : VARCHAR(30) <<UQ>>
+  * descripcion : VARCHAR(150)
+  * rubro_id : INT <<FK>>
+  proveedor_id : INT <<FK>>
+  * precio_costo : DECIMAL(12,2)
+  * precio_venta : DECIMAL(12,2)
+  * stock_actual : INT
+  * stock_minimo : INT
+  activo : BOOLEAN
+  fecha_alta : DATETIME
+}
+
+entity clientes {
+  * id : INT <<PK>>
+  --
+  * nombre : VARCHAR(120)
+  documento : VARCHAR(15) <<UQ>>
+  telefono : VARCHAR(30)
+  email : VARCHAR(80)
+  direccion : VARCHAR(150)
+  tiene_cta_cte : BOOLEAN
+  limite_credito : DECIMAL(12,2)
+  saldo_cta_cte : DECIMAL(12,2)
+  activo : BOOLEAN
+  fecha_alta : DATETIME
+}
+
+entity movimientos_cta_cte {
+  * id : INT <<PK>>
+  --
+  * cliente_id : INT <<FK>>
+  fecha : DATETIME
+  * tipo : ENUM('DEBE','HABER')
+  * monto : DECIMAL(12,2)
+  descripcion : VARCHAR(200)
+  venta_id : INT
+}
+
+entity ventas {
+  * id : INT <<PK>>
+  --
+  fecha : DATETIME
+  * usuario_id : INT <<FK>>
+  cliente_id : INT <<FK>>
+  * forma_pago : ENUM
+  * total : DECIMAL(12,2)
+  estado : ENUM('CONFIRMADA','ANULADA')
+}
+
+entity detalle_ventas {
+  * id : INT <<PK>>
+  --
+  * venta_id : INT <<FK>>
+  * producto_id : INT <<FK>>
+  * cantidad : INT
+  * precio_unitario : DECIMAL(12,2)
+  * subtotal : DECIMAL(12,2)
+}
+
+entity compras {
+  * id : INT <<PK>>
+  --
+  fecha : DATETIME
+  * proveedor_id : INT <<FK>>
+  * usuario_id : INT <<FK>>
+  remito : VARCHAR(30)
+  * total : DECIMAL(12,2)
+}
+
+entity detalle_compras {
+  * id : INT <<PK>>
+  --
+  * compra_id : INT <<FK>>
+  * producto_id : INT <<FK>>
+  * cantidad : INT
+  * precio_costo : DECIMAL(12,2)
+  * subtotal : DECIMAL(12,2)
+}
+
+entity bitacora {
+  * id : BIGINT <<PK>>
+  --
+  fecha : DATETIME
+  usuario_id : INT <<FK>>
+  * accion : VARCHAR(60)
+  detalle : VARCHAR(300)
+}
+
+roles ||--o{ usuarios
+rubros ||--o{ productos
+proveedores ||--o{ productos
+clientes ||--o{ movimientos_cta_cte
+usuarios ||--o{ ventas
+clientes ||--o{ ventas
+ventas ||--|{ detalle_ventas
+productos ||--o{ detalle_ventas
+proveedores ||--o{ compras
+usuarios ||--o{ compras
+compras ||--|{ detalle_compras
+productos ||--o{ detalle_compras
+usuarios ||--o{ bitacora
+ventas ||..o{ movimientos_cta_cte : "venta_id"
+
+@enduml
