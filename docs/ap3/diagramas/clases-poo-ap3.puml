@@ -1,0 +1,82 @@
+@startuml clases-poo-ap3
+title Jerarquía POO incorporada en la AP3 - SIGIV-SM
+
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #F4F8FF
+  BorderColor #1a3a6c
+  ArrowColor #1a3a6c
+}
+hide circle
+
+abstract class Persona {
+  # id : int
+  # nombre : String
+  # documento : String
+  # telefono : String
+  # email : String
+  # direccion : String
+  # activo : boolean
+  + {abstract} tipoEntidad() : String
+  + {abstract} fichaResumen() : String
+  + datosContacto() : String
+}
+
+class Cliente {
+  - tieneCtaCte : boolean
+  - limiteCredito : BigDecimal
+  - saldoCtaCte : BigDecimal
+  + creditoDisponible() : BigDecimal
+  + tipoEntidad() : String
+  + fichaResumen() : String
+}
+
+class Proveedor {
+  + getRazonSocial() : String
+  + getCuit() : String
+  + tipoEntidad() : String
+  + fichaResumen() : String
+}
+
+interface "Comparable<Producto>" as Comparable
+
+class Producto {
+  - codigo : String
+  - descripcion : String
+  - precioVenta : BigDecimal
+  - stockActual : int
+  + {static} POR_PRECIO : Comparator
+  + {static} POR_STOCK : Comparator
+  + {static} POR_CODIGO : Comparator
+  + compareTo(Producto) : int
+  + necesitaReposicion() : boolean
+}
+
+class Algoritmos <<utility>> {
+  + {static} quickSort(List<T>, Comparator<T>) : List<T>
+  + {static} bubbleSort(List<T>, Comparator<T>) : List<T>
+  + {static} busquedaBinaria(List<T>, T, Comparator<T>) : int
+  + {static} busquedaLineal(List<T>, T, Comparator<T>) : int
+}
+
+class MenuConsola {
+  - usuario : Usuario
+  + iniciar() : void
+}
+
+Persona <|-- Cliente
+Persona <|-- Proveedor
+Comparable <|.. Producto
+MenuConsola ..> Algoritmos : usa
+MenuConsola ..> Persona : List<Persona>\n(polimorfismo)
+Algoritmos ..> Producto : ordena/busca
+
+note bottom of Persona
+  ABSTRACCIÓN + HERENCIA:
+  clase base no instanciable
+end note
+note bottom of Cliente
+  POLIMORFISMO:
+  redefine métodos abstractos
+end note
+@enduml

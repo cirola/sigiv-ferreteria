@@ -1,0 +1,38 @@
+@startuml excepciones-ap3
+title Jerarquía de excepciones de SIGIV-SM (AP3)
+
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #FFF6F0
+  BorderColor #8a3a1a
+  ArrowColor #8a3a1a
+}
+hide circle
+hide members
+
+class Exception <<JDK>> #EEEEEE
+class RuntimeException <<JDK>> #EEEEEE
+class IllegalArgumentException <<JDK>> #EEEEEE
+
+class EntidadNoEncontradaException {
+  (chequeada)
+}
+class ValidacionException {
+  (no chequeada)
+}
+class StockInsuficienteException
+class CreditoExcedidoException
+
+Exception <|-- RuntimeException
+RuntimeException <|-- IllegalArgumentException
+Exception <|-- EntidadNoEncontradaException
+IllegalArgumentException <|-- ValidacionException
+ValidacionException <|-- StockInsuficienteException
+ValidacionException <|-- CreditoExcedidoException
+
+note right of ValidacionException
+  Extiende IllegalArgumentException
+  para mantener compatibilidad con
+  la capa Swing existente.
+end note
+@enduml

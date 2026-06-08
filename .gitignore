@@ -31,3 +31,6 @@ nbdist/
 
 # Credenciales locales (el config.properties se commitea solo como plantilla)
 src/main/resources/config.local.properties
+
+# Shade plugin
+dependency-reduced-pom.xml

@@ -2,47 +2,58 @@ package com.sigiv.modelo;
 
 import java.math.BigDecimal;
 
-public class Cliente {
-    private int id;
-    private String nombre;
-    private String documento;
-    private String telefono;
-    private String email;
-    private String direccion;
+/**
+ * Cliente de la ferretería. <b>Hereda</b> de {@link Persona} los datos de
+ * contacto y agrega los atributos propios de la cuenta corriente.
+ *
+ * <p>Aplica <b>herencia</b> (extends Persona) y <b>polimorfismo</b>
+ * (sobrescribe los métodos abstractos {@code tipoEntidad} y
+ * {@code fichaResumen}).</p>
+ */
+public class Cliente extends Persona {
+
     private boolean tieneCtaCte;
     private BigDecimal limiteCredito = BigDecimal.ZERO;
     private BigDecimal saldoCtaCte = BigDecimal.ZERO;
-    private boolean activo = true;
 
-    public Cliente() {}
+    public Cliente() {
+        super();
+    }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getNombre() { return nombre; }
-    public void setNombre(String v) { this.nombre = v; }
-    public String getDocumento() { return documento; }
-    public void setDocumento(String v) { this.documento = v; }
-    public String getTelefono() { return telefono; }
-    public void setTelefono(String v) { this.telefono = v; }
-    public String getEmail() { return email; }
-    public void setEmail(String v) { this.email = v; }
-    public String getDireccion() { return direccion; }
-    public void setDireccion(String v) { this.direccion = v; }
+    public Cliente(int id, String nombre, String documento, String telefono,
+                   String email, String direccion, boolean tieneCtaCte,
+                   BigDecimal limiteCredito, BigDecimal saldoCtaCte) {
+        super(id, nombre, documento, telefono, email, direccion);
+        this.tieneCtaCte = tieneCtaCte;
+        this.limiteCredito = limiteCredito;
+        this.saldoCtaCte = saldoCtaCte;
+    }
+
     public boolean isTieneCtaCte() { return tieneCtaCte; }
     public void setTieneCtaCte(boolean v) { this.tieneCtaCte = v; }
     public BigDecimal getLimiteCredito() { return limiteCredito; }
     public void setLimiteCredito(BigDecimal v) { this.limiteCredito = v; }
     public BigDecimal getSaldoCtaCte() { return saldoCtaCte; }
     public void setSaldoCtaCte(BigDecimal v) { this.saldoCtaCte = v; }
-    public boolean isActivo() { return activo; }
-    public void setActivo(boolean v) { this.activo = v; }
 
+    /** Regla de negocio propia del cliente: crédito que aún puede usar. */
     public BigDecimal creditoDisponible() {
         return limiteCredito.subtract(saldoCtaCte);
     }
 
+    // --- Polimorfismo: implementación concreta de los métodos abstractos ---
+
     @Override
-    public String toString() {
-        return nombre + (documento != null ? " (" + documento + ")" : "");
+    public String tipoEntidad() {
+        return "CLIENTE";
+    }
+
+    @Override
+    public String fichaResumen() {
+        if (tieneCtaCte) {
+            return String.format("%s | Cta.Cte: saldo $%s / límite $%s (disp. $%s)",
+                    nombre, saldoCtaCte, limiteCredito, creditoDisponible());
+        }
+        return nombre + " | Contado";
     }
 }

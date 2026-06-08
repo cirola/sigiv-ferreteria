@@ -1,8 +1,29 @@
 package com.sigiv.modelo;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 
-public class Producto {
+/**
+ * Producto del inventario.
+ *
+ * <p>Implementa {@link Comparable} para definir un <b>orden natural</b> (por
+ * descripción) y expone varios {@link Comparator} como estrategias de
+ * ordenamiento. Esto habilita el <b>polimorfismo</b> en los algoritmos de
+ * ordenación genéricos de {@code com.sigiv.util.Algoritmos}: el mismo método
+ * ordena por precio, stock o descripción según el comparador recibido.</p>
+ */
+public class Producto implements Comparable<Producto> {
+
+    /** Estrategias de ordenamiento reutilizables (polimorfismo vía Comparator). */
+    public static final Comparator<Producto> POR_PRECIO =
+            Comparator.comparing(Producto::getPrecioVenta);
+    public static final Comparator<Producto> POR_STOCK =
+            Comparator.comparingInt(Producto::getStockActual);
+    public static final Comparator<Producto> POR_DESCRIPCION =
+            Comparator.comparing(p -> p.getDescripcion().toLowerCase());
+    public static final Comparator<Producto> POR_CODIGO =
+            Comparator.comparing(Producto::getCodigo);
+
     private int id;
     private String codigo;
     private String descripcion;
@@ -42,6 +63,12 @@ public class Producto {
 
     public boolean necesitaReposicion() {
         return stockActual <= stockMinimo;
+    }
+
+    /** Orden natural del producto: alfabético por descripción. */
+    @Override
+    public int compareTo(Producto otro) {
+        return this.descripcion.compareToIgnoreCase(otro.descripcion);
     }
 
     @Override

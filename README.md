@@ -60,8 +60,28 @@ mvn exec:java
 o bien, el jar empaquetado:
 
 ```bash
+# Interfaz gráfica (Swing) — AP1/AP2
 java -jar target/sigiv-ferreteria.jar
+
+# Menú de consola — AP3 (POO)
+java -jar target/sigiv-ferreteria.jar --consola
+
+# Demostración autónoma de POO (no requiere base de datos)
+java -cp target/classes com.sigiv.consola.DemoPOO
 ```
+
+---
+
+## Aplicación de POO (AP3)
+
+La tercera entrega profundiza en los pilares de la Programación Orientada a Objetos sobre el mismo prototipo:
+
+- **Abstracción / Herencia:** clase abstracta `modelo.Persona` → `Cliente`, `Proveedor`.
+- **Polimorfismo:** agenda de contactos sobre `List<Persona>` y algoritmos genéricos con `Comparator`.
+- **Encapsulamiento:** atributos privados + getters/setters y separación de capas.
+- **Excepciones:** paquete `excepcion` (chequeadas y no chequeadas).
+- **Algoritmos:** `util.Algoritmos` (QuickSort, BubbleSort, búsqueda binaria y lineal).
+- **Menú de selección:** `consola.MenuConsola`.
 
 ---
 
