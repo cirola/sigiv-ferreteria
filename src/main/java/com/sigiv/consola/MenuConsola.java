@@ -11,8 +11,16 @@ import com.sigiv.servicio.ServicioProducto;
 import com.sigiv.servicio.ServicioVenta;
 import com.sigiv.util.Algoritmos;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -75,6 +83,7 @@ public class MenuConsola {
                     case 5 -> registrarVenta();
                     case 6 -> altaProducto();
                     case 7 -> agendaContactos();
+                    case 8 -> reporteVentas();
                     case 0 -> System.out.println("Cerrando sesión. ¡Hasta luego!");
                     default -> System.out.println(">> Opción inexistente. Intente nuevamente.");
                 }
@@ -123,6 +132,7 @@ public class MenuConsola {
         System.out.println(" 5) Registrar venta");
         System.out.println(" 6) Alta de producto");
         System.out.println(" 7) Agenda de contactos (clientes y proveedores)");
+        System.out.println(" 8) Reporte de ventas por forma de pago (exporta a archivo)");
         System.out.println(" 0) Salir");
         System.out.println("-----------------------------------------");
     }
@@ -289,6 +299,62 @@ public class MenuConsola {
             // POLIMORFISMO: tipoEntidad() y fichaResumen() se resuelven en
             // tiempo de ejecución según el objeto concreto.
             System.out.printf("   [%-9s] %s%n", persona.tipoEntidad(), persona.fichaResumen());
+        }
+    }
+
+    // ------------------------------------------------------------------
+    //  Opción 8 - Reporte de ventas por forma de pago
+    //  (uso complementario de ArrayList + arreglo, y persistencia en archivo)
+    // ------------------------------------------------------------------
+    private void reporteVentas() throws SQLException {
+        // 1) Datos dinámicos desde la BD: ArrayList de ventas
+        List<Venta> ventas = servicioVenta.listar();
+        if (ventas.isEmpty()) {
+            System.out.println(">> No hay ventas confirmadas para reportar.");
+            return;
+        }
+
+        // 2) Acumulación sobre un ARREGLO de tamaño fijo (una celda por forma de pago)
+        Venta.FormaPago[] formas = Venta.FormaPago.values();
+        BigDecimal[] totales = servicioVenta.totalesPorFormaPago(ventas);
+
+        // 3) Presentación en la interfaz (consola)
+        BigDecimal totalGeneral = BigDecimal.ZERO;
+        StringBuilder reporte = new StringBuilder();
+        reporte.append("REPORTE DE VENTAS POR FORMA DE PAGO%n".formatted());
+        reporte.append("Generado: ")
+               .append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")))
+               .append(String.format("%n"));
+        reporte.append(String.format("Ventas confirmadas procesadas: %d%n", ventas.size()));
+        reporte.append("-------------------------------------------%n".formatted());
+        for (int i = 0; i < formas.length; i++) {           // recorrido del arreglo por índice
+            reporte.append(String.format("%-16s $ %,12.2f%n", formas[i], totales[i]));
+            totalGeneral = totalGeneral.add(totales[i]);
+        }
+        reporte.append("-------------------------------------------%n".formatted());
+        reporte.append(String.format("%-16s $ %,12.2f%n", "TOTAL GENERAL", totalGeneral));
+
+        System.out.println();
+        System.out.print(reporte);
+
+        // 4) Persistencia en archivo de texto (requisito opcional: manejo de archivos)
+        exportarReporte(reporte.toString());
+    }
+
+    /** Guarda el reporte en un archivo .txt, manejando la posible {@link IOException}. */
+    private void exportarReporte(String contenido) {
+        try {
+            Path dir = Paths.get("reportes");
+            Files.createDirectories(dir);
+            String nombre = "ventas-" +
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
+            Path archivo = dir.resolve(nombre);
+            try (BufferedWriter w = Files.newBufferedWriter(archivo, StandardCharsets.UTF_8)) {
+                w.write(contenido);
+            }
+            System.out.println(">> Reporte exportado a: " + archivo.toAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("[ERROR ARCHIVO] No se pudo guardar el reporte: " + e.getMessage());
         }
     }
 

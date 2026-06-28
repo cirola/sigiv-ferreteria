@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductoDAO {
+public class ProductoDAO implements DAO<Producto> {
 
     private static final String SELECT_BASE =
             "SELECT p.id, p.codigo, p.descripcion, p.rubro_id, r.nombre AS rubro_nombre, " +
@@ -16,6 +16,7 @@ public class ProductoDAO {
             "       p.stock_actual, p.stock_minimo, p.activo " +
             "FROM productos p JOIN rubros r ON r.id = p.rubro_id ";
 
+    @Override
     public List<Producto> listar() throws SQLException {
         String sql = SELECT_BASE + "WHERE p.activo = TRUE ORDER BY p.descripcion";
         return ejecutarLista(sql);
@@ -36,6 +37,7 @@ public class ProductoDAO {
         }
     }
 
+    @Override
     public Optional<Producto> buscarPorId(int id) throws SQLException {
         String sql = SELECT_BASE + "WHERE p.id = ?";
         try (Connection c = ConexionBD.get();
@@ -60,6 +62,7 @@ public class ProductoDAO {
         }
     }
 
+    @Override
     public int insertar(Producto p) throws SQLException {
         String sql = "INSERT INTO productos (codigo, descripcion, rubro_id, proveedor_id, " +
                 "  precio_costo, precio_venta, stock_actual, stock_minimo) " +
@@ -86,6 +89,7 @@ public class ProductoDAO {
         }
     }
 
+    @Override
     public void actualizar(Producto p) throws SQLException {
         String sql = "UPDATE productos SET codigo=?, descripcion=?, rubro_id=?, proveedor_id=?, " +
                 "  precio_costo=?, precio_venta=?, stock_actual=?, stock_minimo=? " +
@@ -106,6 +110,7 @@ public class ProductoDAO {
         }
     }
 
+    @Override
     public void darDeBaja(int id) throws SQLException {
         String sql = "UPDATE productos SET activo = FALSE WHERE id = ?";
         try (Connection c = ConexionBD.get();

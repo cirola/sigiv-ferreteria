@@ -17,6 +17,7 @@ public class Venta {
     private FormaPago formaPago = FormaPago.EFECTIVO;
     private Estado estado = Estado.CONFIRMADA;
     private List<DetalleVenta> items = new ArrayList<>();
+    private BigDecimal totalRegistrado; // total persistido (se setea al leer la venta desde la BD)
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -35,7 +36,18 @@ public class Venta {
     public List<DetalleVenta> getItems() { return items; }
     public void setItems(List<DetalleVenta> v) { this.items = v; }
 
+    /** Fija el total ya calculado y persistido (usado por el DAO al leer de la BD). */
+    public void setTotal(BigDecimal v) { this.totalRegistrado = v; }
+
+    /**
+     * Total de la venta. Cuando la venta tiene ítems cargados (flujo de registro),
+     * se calcula sumando los subtotales; cuando se recupera desde la BD sin ítems,
+     * devuelve el total persistido.
+     */
     public BigDecimal getTotal() {
+        if (items.isEmpty() && totalRegistrado != null) {
+            return totalRegistrado;
+        }
         return items.stream()
                 .map(DetalleVenta::getSubtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

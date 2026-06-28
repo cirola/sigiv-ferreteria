@@ -1,0 +1,33 @@
+@startuml reporte-ap4
+title Reporte de ventas — uso complementario de ArrayList y arreglo (AP4)
+
+skinparam dpi 150
+skinparam shadowing false
+
+actor "Usuario\n(consola)" as U
+participant "MenuConsola" as M
+participant "ServicioVenta" as S
+participant "VentaDAO" as D
+database "MySQL\n(ventas)" as BD
+participant "Arreglo\nBigDecimal[]" as A
+participant "Archivo .txt" as F
+
+U -> M : opción 8 (reporte)
+M -> S : listar()
+S -> D : listar()
+D -> BD : SELECT ... FROM ventas
+BD --> D : filas
+D --> S : ArrayList<Venta>\n(tamaño dinámico)
+S --> M : List<Venta>
+M -> S : totalesPorFormaPago(ventas)
+S -> A : new BigDecimal[FormaPago.length]\n(tamaño fijo)
+loop por cada Venta del ArrayList
+  S -> A : totales[formaPago.ordinal()] += total
+end
+S --> M : BigDecimal[] totales
+M -> U : muestra el reporte en pantalla
+M -> F : exporta reporte (BufferedWriter)
+note right of F : manejo de IOException
+M -> U : ">> Reporte exportado a: ..."
+
+@enduml

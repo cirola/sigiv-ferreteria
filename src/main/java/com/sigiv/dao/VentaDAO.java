@@ -5,11 +5,42 @@ import com.sigiv.modelo.Venta;
 import com.sigiv.util.ConexionBD;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VentaDAO {
 
     private final ProductoDAO productoDAO = new ProductoDAO();
     private final ClienteDAO clienteDAO = new ClienteDAO();
+
+    /**
+     * Recupera las ventas confirmadas (cabecera, sin el detalle de ítems),
+     * ordenadas de la más reciente a la más antigua. Devuelve un
+     * {@link ArrayList}, estructura dinámica adecuada porque la cantidad de
+     * ventas no se conoce de antemano.
+     */
+    public List<Venta> listar() throws SQLException {
+        String sql = "SELECT id, fecha, usuario_id, cliente_id, forma_pago, total, estado " +
+                "FROM ventas WHERE estado = 'CONFIRMADA' ORDER BY fecha DESC";
+        List<Venta> ventas = new ArrayList<>();
+        try (Connection c = ConexionBD.get();
+             PreparedStatement ps = c.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Venta v = new Venta();
+                v.setId(rs.getInt("id"));
+                v.setFecha(rs.getTimestamp("fecha").toLocalDateTime());
+                v.setUsuarioId(rs.getInt("usuario_id"));
+                int cliId = rs.getInt("cliente_id");
+                v.setClienteId(rs.wasNull() ? null : cliId);
+                v.setFormaPago(Venta.FormaPago.valueOf(rs.getString("forma_pago")));
+                v.setEstado(Venta.Estado.valueOf(rs.getString("estado")));
+                v.setTotal(rs.getBigDecimal("total"));
+                ventas.add(v);
+            }
+        }
+        return ventas;
+    }
 
     /**
      * Registra una venta de forma atómica:

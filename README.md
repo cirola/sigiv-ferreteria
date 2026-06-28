@@ -85,6 +85,20 @@ La tercera entrega profundiza en los pilares de la Programación Orientada a Obj
 
 ---
 
+## Patrón de diseño y persistencia (AP4)
+
+La cuarta entrega (final integradora) formaliza el **patrón DAO** y profundiza la persistencia:
+
+- **Patrón DAO:** interfaz genérica `dao.DAO<T>` que define el contrato de acceso a datos; `dao.ProductoDAO` es la implementación de referencia. Desacopla la lógica de negocio del motor MySQL.
+- **Interfaz + clase abstracta:** `dao.DAO<T>` (contrato) junto a `modelo.Persona` (jerarquía con estado compartido).
+- **Arreglos + ArrayList complementarios:** `servicio.ServicioVenta.totalesPorFormaPago()` acumula sobre un arreglo de tamaño fijo (una celda por forma de pago) los datos de un `ArrayList<Venta>` dinámico traído de la base.
+- **Archivos (opcional):** la opción 8 del menú de consola exporta el reporte de ventas a `reportes/ventas-*.txt` (manejo de `IOException`).
+- **Excepciones de BD:** `SQLException` con transacciones y rollback en `VentaDAO`.
+
+Documento e informe en `docs/ap4/` (`URRUSTARAZU-CIRO-AP4.pdf`), con los diagramas del patrón DAO y del flujo del reporte.
+
+---
+
 ## Credenciales de prueba
 
 | Usuario | Contraseña | Rol |

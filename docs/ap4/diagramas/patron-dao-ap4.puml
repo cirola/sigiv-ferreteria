@@ -1,0 +1,70 @@
+@startuml patron-dao-ap4
+title Patrón DAO formalizado con interfaz genérica — SIGIV-SM (AP4)
+
+skinparam dpi 150
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+hide empty members
+
+package "servicio (lógica de negocio)" {
+  class ServicioProducto
+  class ServicioVenta
+}
+
+package "dao (persistencia)" {
+  interface "DAO<T>" as DAO {
+    +listar() : List<T>
+    +buscarPorId(id) : Optional<T>
+    +insertar(t) : int
+    +actualizar(t) : void
+    +darDeBaja(id) : void
+  }
+  class ProductoDAO {
+    +descontarStock(c, id, cant)
+  }
+  class VentaDAO {
+    +registrar(v) : int
+    +listar() : List<Venta>
+  }
+  class ClienteDAO
+  class ProveedorDAO
+  class RubroDAO
+}
+
+package "util" {
+  class ConexionBD <<utility>> {
+    -ConexionBD()
+    +get() : Connection
+  }
+}
+
+DAO <|.. ProductoDAO : implements
+
+ServicioProducto ..> DAO : usa el contrato
+ServicioVenta ..> VentaDAO
+ServicioVenta ..> ProductoDAO
+
+ProductoDAO ..> ConexionBD
+VentaDAO ..> ConexionBD
+ClienteDAO ..> ConexionBD
+ProveedorDAO ..> ConexionBD
+RubroDAO ..> ConexionBD
+
+note right of DAO
+  El contrato genérico desacopla
+  la lógica de negocio del motor
+  de persistencia (MySQL/JDBC).
+  ProductoDAO es la implementación
+  de referencia; el resto de los DAO
+  siguen el mismo patrón con
+  operaciones propias de su entidad.
+end note
+
+note bottom of ConexionBD
+  Acceso centralizado a la BD:
+  constructor privado y único punto
+  de obtención de la Connection.
+end note
+
+@enduml

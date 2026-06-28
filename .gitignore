@@ -34,3 +34,9 @@ src/main/resources/config.local.properties
 
 # Shade plugin
 dependency-reduced-pom.xml
+
+# Reportes generados en tiempo de ejecución (AP4)
+reportes/
+
+# HTML intermedio de generación de PDF (AP4)
+docs/ap4/*.html
