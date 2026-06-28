@@ -40,3 +40,9 @@ reportes/
 
 # HTML intermedio de generación de PDF (AP4)
 docs/ap4/*.html
+
+# Guión del video — material personal, no se publica en el repo
+docs/ap4/GUION-VIDEO.md
+
+# Configuración local de herramientas de asistencia
+.claude/
