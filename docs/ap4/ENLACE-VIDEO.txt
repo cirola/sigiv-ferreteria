@@ -1,0 +1,6 @@
+SIGIV-SM | Sistema de Gestion de Inventario y Ventas - Ferreteria San Martin
+Seminario de Practica Informatica - AP4 (Proyecto integrador final)
+Autor: Ciro Urrustarazu
+
+VIDEO DE PRESENTACION:
+https://youtu.be/lkDSRPw4MXY
